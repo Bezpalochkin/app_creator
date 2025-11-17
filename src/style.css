@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@layer base, theme, properties, components, primevue, utilities, app;
+
+:root {
+    --pb-surface-color: #ffffff;
+    --pb-on-surface-color: #020202;
+    --pb-surfave-dim-color: #334155;
+    --pb-on-surfave-dim-color: #ffffff;
+    --pb-surfave-variant-color: #f2f2f2;
+    --pb-on-surfave-variant-color: #020202;
+    --pb-primary-color: #2f80ed;
+    --pb-on-primary-color: #ffffff;
+
+    --aside-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+@layer app {
+  * {
+    box-sizing: border-box;
+  }
+  html, body {
+    @apply w-full h-[100svh] overflow-clip;
+  }
+
+  #app {
+      @apply grid grid-cols-1 grid-rows-1 w-full h-full 
+      p-[.5rem] bg-(--pb-surfave-variant-color);
+  }  
+}
