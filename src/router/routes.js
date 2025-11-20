@@ -18,7 +18,11 @@ const creatorRoutes = [
         {
             path: ROUTE_NAMES.START_SCREEN,
             name: ROUTE_NAMES.START_SCREEN,
-            meta: { screen: 'mainScreen' },
+            meta: { 
+                screen: 'mainScreen', 
+                leftSidebar: 'components',
+                rightSidebar: 'settings'
+            },
             component: () => import('@v/StartScreenEdit.vue'),
         }
 //     {

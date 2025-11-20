@@ -1,12 +1,16 @@
 <template>
 <div class="screen__content">
-    <PhoneMockup/>
+    <PhoneMockup
+        :data="mockupStore.getScreens.mainScreen"
+    />
 </div>
 </template>
 
 <script setup>
 import PhoneMockup from '@c/appComponents/PhoneMockup.vue'
+import { useMockupStore } from '@s/mockupStore'
 
+const mockupStore = useMockupStore()
 </script>
 
 <style scoped>

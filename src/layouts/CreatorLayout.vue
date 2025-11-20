@@ -1,17 +1,24 @@
 <template>
 <main>
-    <ComponentsBar
+    <CreatorSidebar
+        v-if="'leftSidebar' in route.meta"
+        :type="route.meta.leftSidebar"
         class="left-0"
     />
     <RouterView />
-    <SettingsBar
+    <CreatorSidebar
+        v-if="'rightSidebar' in route.meta"
+        :type="route.meta.rightSidebar"
         class="right-0"
     />    
 </main>
 </template>
 
 <script setup>
-import ComponentsBar from '@c/appComponents/components-bar/ComponentsBar.vue'
+import { useRoute } from 'vue-router'
+import CreatorSidebar from '@c/appComponents/componentsBar/CreatorSidebar.vue'
+
+const route = useRoute()
 </script>
 
 <style scoped>

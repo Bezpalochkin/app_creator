@@ -27,5 +27,15 @@
   #app {
       @apply grid grid-cols-1 grid-rows-1 w-full h-full 
       p-[.5rem] bg-(--pb-surfave-variant-color);
-  }  
+  }
+
+  .v-enter-active,
+  .v-leave-active {
+      transition: opacity 0.5s ease;
+  }
+
+  .v-enter-from,
+  .v-leave-to {
+      opacity: 0;
+  }   
 }

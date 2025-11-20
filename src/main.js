@@ -5,7 +5,8 @@ import plugins from '@/plugins'
 import router from '@/router'
 import { createPinia } from 'pinia'
 
-import '@/style.css'
+import '@st/style.css'
+import '@st/icons.css'
 import 'primeicons/primeicons.css'
 
 const app = createApp(App)

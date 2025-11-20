@@ -1,0 +1,221 @@
+@font-face {
+  font-family: 'app-icons';
+  src: url('../assets/fonts/app-icons.eot?88580361');
+  src: url('../assets/fonts/app-icons.eot?88580361#iefix') format('embedded-opentype'),
+  url('../assets/fonts/app-icons.woff2?88580361') format('woff2'),
+  url('../assets/fonts/app-icons.woff?88580361') format('woff'),
+  url('../assets/fonts/app-icons.ttf?88580361') format('truetype'),
+  url('../assets/fonts/app-icons.svg?88580361#app-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="app-icon-"]:before, [class*=" app-icon-"]:before {
+  font-family: "app-icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: never;
+
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.app-icon-coins:before { content: '\e802'; } /* '' */
+.app-icon-share:before { content: '\e803'; } /* '' */
+.app-icon-dislike:before { content: '\e805'; } /* '' */
+.app-icon-funds:before { content: '\e807'; } /* '' */
+.app-icon-fork:before { content: '\e808'; } /* '' */
+.app-icon-gear:before { content: '\e80a'; } /* '' */
+.app-icon-information:before { content: '\e80b'; } /* '' */
+.app-icon-gift-card:before { content: '\e80c'; } /* '' */
+.app-icon-like:before { content: '\e80e'; } /* '' */
+.app-icon-add-user:before { content: '\e810'; } /* '' */
+.app-icon-ribbon:before { content: '\e811'; } /* '' */
+.app-icon-sent:before { content: '\e814'; } /* '' */
+.app-icon-smile:before { content: '\e815'; } /* '' */
+.app-icon-mobile:before { content: '\e816'; } /* '' */
+.app-icon-tune:before { content: '\e818'; } /* '' */
+.app-icon-sync:before { content: '\e819'; } /* '' */
+.app-icon-user:before { content: '\e81b'; } /* '' */
+.app-icon-delivery-truck:before { content: '\e81c'; } /* '' */
+.app-icon-location:before { content: '\e824'; } /* '' */
+.app-icon-ion_mail-open-outline:before { content: '\e826'; } /* '' */
+.app-icon-bag:before { content: '\e827'; } /* '' */
+.app-icon-home_new:before { content: '\e82f'; } /* '' */
+.app-icon-instagram:before { content: '\e864'; } /* '' */
+.app-icon-sent-2:before { content: '\e86d'; } /* '' */
+.app-icon-legend-collection:before { content: '\e8b4'; } /* '' */
+.app-icon-like-2:before { content: '\e8b5'; } /* '' */
+.app-icon-_ion_mail-open-outline:before { content: '\e8d1'; } /* '' */
+.app-icon-new-trash:before { content: '\e8d3'; } /* '' */
+.app-icon-work:before { content: '\e8d4'; } /* '' */
+.app-icon-mail-3:before { content: '\e8d5'; } /* '' */
+.app-icon-camera-add:before { content: '\e8d6'; } /* '' */
+.app-icon-gallery-add:before { content: '\e8d7'; } /* '' */
+.app-icon-percent:before { content: '\e8f4'; } /* '' */
+.app-icon-credit-card-3:before { content: '\e8f5'; } /* '' */
+.app-icon-fork-3:before { content: '\e8f6'; } /* '' */
+.app-icon-funds-2:before { content: '\e8f7'; } /* '' */
+.app-icon-funds-3:before { content: '\e8f8'; } /* '' */
+.app-icon-box-2:before { content: '\e8f9'; } /* '' */
+.app-icon-promo-2:before { content: '\e908'; } /* '' */
+.app-icon-writing:before { content: '\e914'; } /* '' */
+.app-icon-box:before { content: '\e918'; } /* '' */
+.app-icon-email:before { content: '\e91b'; } /* '' */
+.app-icon-shop-cart:before { content: '\e91d'; } /* '' */
+.app-icon-promo:before { content: '\e924'; } /* '' */
+.app-icon-gift:before { content: '\e934'; } /* '' */
+.app-icon-dinner:before { content: '\e93c'; } /* '' */
+.app-icon-credit-card:before { content: '\e941'; } /* '' */
+.app-icon-comment:before { content: '\e946'; } /* '' */
+.app-icon-addresses:before { content: '\e94a'; } /* '' */
+.app-icon-edit:before { content: '\e94b'; } /* '' */
+.app-icon-munterra-status:before { content: '\e94c'; } /* '' */
+.app-icon-rouble:before { content: '\e94d'; } /* '' */
+.app-icon-precheck:before { content: '\e94e'; } /* '' */
+.app-icon-logout:before { content: '\e94f'; } /* '' */
+.app-icon-comment-6:before { content: '\e99c'; } /* '' */
+.app-icon-home:before { content: '\e99d'; } /* '' */
+.app-icon-my_adigeya:before { content: '\e99e'; } /* '' */
+.app-icon-share-4:before { content: '\e99f'; } /* '' */
+.app-icon-share-5:before { content: '\e9a0'; } /* '' */
+.app-icon-www:before { content: '\e9a1'; } /* '' */
+.app-icon-onepricecoffee:before { content: '\e9b0'; } /* '' */
+.app-icon-transaction_2:before { content: '\e9b8'; } /* '' */
+.app-icon-transaction_3:before { content: '\e9b9'; } /* '' */
+.app-icon-transaction_1:before { content: '\e9ba'; } /* '' */
+.app-icon-lock:before { content: '\e9bb'; } /* '' */
+.app-icon-history:before { content: '\e9bc'; } /* '' */
+.app-icon-hello:before { content: '\e9bd'; } /* '' */
+.app-icon-date:before { content: '\e9be'; } /* '' */
+.app-icon-download:before { content: '\e9bf'; } /* '' */
+.app-icon-filter:before { content: '\e9c0'; } /* '' */
+.app-icon-fire:before { content: '\e9c1'; } /* '' */
+.app-icon-delete:before { content: '\e9c2'; } /* '' */
+.app-icon-code:before { content: '\e9c3'; } /* '' */
+.app-icon-card:before { content: '\e9c4'; } /* '' */
+.app-icon-time:before { content: '\e9c5'; } /* '' */
+.app-icon-sync_new:before { content: '\e9c6'; } /* '' */
+.app-icon-close:before { content: '\e9c7'; } /* '' */
+.app-icon-ok:before { content: '\e9c8'; } /* '' */
+.app-icon-exit:before { content: '\e9c9'; } /* '' */
+.app-icon-repeat:before { content: '\e9ca'; } /* '' */
+.app-icon-support:before { content: '\e9cb'; } /* '' */
+.app-icon-burger_menu:before { content: '\e9cc'; } /* '' */
+.app-icon-back_2:before { content: '\e9cd'; } /* '' */
+.app-icon-back:before { content: '\e9ce'; } /* '' */
+.app-icon-attach:before { content: '\e9cf'; } /* '' */
+.app-icon-add:before { content: '\e9d0'; } /* '' */
+.app-icon-search:before { content: '\e9d1'; } /* '' */
+.app-icon-qr_2:before { content: '\e9d2'; } /* '' */
+.app-icon-qr_1:before { content: '\e9d3'; } /* '' */
+.app-icon-profile_settings:before { content: '\e9d4'; } /* '' */
+.app-icon-job:before { content: '\e9d5'; } /* '' */
+.app-icon-cook_1:before { content: '\e9d6'; } /* '' */
+.app-icon-agreement:before { content: '\e9d7'; } /* '' */
+.app-icon-agreement-2:before { content: '\e9d8'; } /* '' */
+.app-icon-www-1:before { content: '\e9d9'; } /* '' */
+.app-icon-security_pay_2:before { content: '\e9da'; } /* '' */
+.app-icon-contacts:before { content: '\e9db'; } /* '' */
+.app-icon-catering:before { content: '\e9dc'; } /* '' */
+.app-icon-social_whatsapp:before { content: '\e9dd'; } /* '' */
+.app-icon-social_whatsapp-1:before { content: '\e9de'; } /* '' */
+.app-icon-social_viber:before { content: '\e9df'; } /* '' */
+.app-icon-social_tik_tok:before { content: '\e9e0'; } /* '' */
+.app-icon-social_telegram:before { content: '\e9e1'; } /* '' */
+.app-icon-social_spotify:before { content: '\e9e2'; } /* '' */
+.app-icon-social_share_2:before { content: '\e9e3'; } /* '' */
+.app-icon-social_ok:before { content: '\e9e4'; } /* '' */
+.app-icon-social_like:before { content: '\e9e5'; } /* '' */
+.app-icon-social_fb:before { content: '\e9e6'; } /* '' */
+.app-icon-checklist:before { content: '\e9e7'; } /* '' */
+.app-icon-send_mail:before { content: '\e9e8'; } /* '' */
+.app-icon-mail_open:before { content: '\e9e9'; } /* '' */
+.app-icon-invitation_2:before { content: '\e9ea'; } /* '' */
+.app-icon-commets_2:before { content: '\e9eb'; } /* '' */
+.app-icon-birthday:before { content: '\e9ec'; } /* '' */
+.app-icon-birthday-2:before { content: '\e9ed'; } /* '' */
+.app-icon-ticket_2:before { content: '\e9ee'; } /* '' */
+.app-icon-ticket:before { content: '\e9ef'; } /* '' */
+.app-icon-promokod:before { content: '\e9f0'; } /* '' */
+.app-icon-bonus_spend:before { content: '\e9f1'; } /* '' */
+.app-icon-bonus_gift:before { content: '\e9f2'; } /* '' */
+.app-icon-bonus_bank:before { content: '\e9f3'; } /* '' */
+.app-icon-messages_2_new:before { content: '\e9f4'; } /* '' */
+.app-icon-bonus_game:before { content: '\e9f5'; } /* '' */
+.app-icon-afisha_3:before { content: '\e9f6'; } /* '' */
+.app-icon-afisha_2:before { content: '\e9f7'; } /* '' */
+.app-icon-reserved_2_new:before { content: '\e9f8'; } /* '' */
+.app-icon-action_3:before { content: '\e9f9'; } /* '' */
+.app-icon-action_2:before { content: '\e9fa'; } /* '' */
+.app-icon-service:before { content: '\e9fb'; } /* '' */
+.app-icon-kruasan:before { content: '\e9fc'; } /* '' */
+.app-icon-food_tea:before { content: '\e9fd'; } /* '' */
+.app-icon-food_pizza:before { content: '\e9fe'; } /* '' */
+.app-icon-food_coffee3:before { content: '\e9ff'; } /* '' */
+.app-icon-food_coffee:before { content: '\ea01'; } /* '' */
+.app-icon-dinner_new:before { content: '\ea02'; } /* '' */
+.app-icon-catalogue:before { content: '\ea03'; } /* '' */
+.app-icon-beer:before { content: '\ea04'; } /* '' */
+.app-icon-gender:before { content: '\ea05'; } /* '' */
+.app-icon-director2:before { content: '\ea06'; } /* '' */
+.app-icon-director:before { content: '\ea07'; } /* '' */
+.app-icon-control:before { content: '\ea08'; } /* '' */
+.app-icon-social_vk:before { content: '\ea09'; } /* '' */
+.app-icon-afisha:before { content: '\ea0a'; } /* '' */
+.app-icon-qr_3:before { content: '\ea5a'; } /* '' */
+.app-icon-bot:before { content: '\ea5b'; } /* '' */
+.app-icon-social_like2:before { content: '\ea5c'; } /* '' */
+.app-icon-social_like3:before { content: '\ea5d'; } /* '' */
+.app-icon-heart:before { content: '\ea5e'; } /* '' */
+.app-icon-target_2:before { content: '\ea5f'; } /* '' */
+.app-icon-target:before { content: '\ea60'; } /* '' */
+.app-icon-raiting:before { content: '\ea61'; } /* '' */
+.app-icon-cake2:before { content: '\ea62'; } /* '' */
+.app-icon-cake:before { content: '\ea63'; } /* '' */
+.app-icon-abonements:before { content: '\ea64'; } /* '' */
+.app-icon-binoculars:before { content: '\ea65'; } /* '' */
+.app-icon-food_soup:before { content: '\ea66'; } /* '' */
+.app-icon-food_bread:before { content: '\ea67'; } /* '' */
+.app-icon-close2:before { content: '\ea68'; } /* '' */
+.app-icon-mobile-1:before { content: '\ea69'; } /* '' */
+.app-icon-target_3:before { content: '\ea6a'; } /* '' */
+.app-icon-likes_product:before { content: '\ea6b'; } /* '' */
+.app-icon-favorits_product-2:before { content: '\ea6c'; } /* '' */
+.app-icon-favorits_product:before { content: '\ea6d'; } /* '' */
+.app-icon-gamefication:before { content: '\ea82'; } /* '' */
+.app-icon-money2:before { content: '\ea83'; } /* '' */
+.app-icon-path:before { content: '\ea84'; } /* '' */
+.app-icon-metro:before { content: '\ea85'; } /* '' */
+.app-icon-time2:before { content: '\ea86'; } /* '' */
+.app-icon-beauty:before { content: '\ea87'; } /* '' */
+.app-icon-cinema:before { content: '\ea88'; } /* '' */
+.app-icon-cocktail:before { content: '\ea89'; } /* '' */
+.app-icon-beer2:before { content: '\ea8a'; } /* '' */
+.app-icon-menu:before { content: '\f0c9'; } /* '' */
+.app-icon-user-plus:before { content: '\f234'; } /* '' */

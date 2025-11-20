@@ -32,6 +32,7 @@ export default defineConfig({
       '@s': path.resolve(__dirname, './src/stores'),
       '@u': path.resolve(__dirname, './src/utils'),
       '@v': path.resolve(__dirname, './src/views'),
+      '@st': path.resolve(__dirname, './src/styles'),
       '@@': path.resolve(__dirname, './src/composables')
     }
   }
