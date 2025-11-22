@@ -46,7 +46,7 @@ const handleClick = () => {
 @reference "tailwindcss";
 @layer app {
     .variant {
-        @apply relative grid place-items-center w-full h-[5rem] overflow-visible
+        @apply relative grid place-items-center w-full overflow-visible
         border-2 border-(--pb-surfave-variant-color) rounded-[1rem] cursor-pointer
     }
 

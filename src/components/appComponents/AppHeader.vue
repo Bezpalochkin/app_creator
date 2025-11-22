@@ -17,17 +17,24 @@
             label="Сохранить"
             severity="info"
             size="small"
-            :disabled="appStore.getForbiddenEdit"
+            :disabled="disableSaveBtn"
         />
     </div>
 </header>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import logo from '@a/pb_logo_symbol_dark.svg'
 import { useAppStore } from '@s/appStore'
+import { useMockupStore } from '@s/mockupStore'
 
 const appStore = useAppStore()
+const mockupStore = useAppStore()
+
+const disableSaveBtn = computed(() => {
+    return appStore.getForbiddenEdit
+})
 </script>
 
 <style scoped>

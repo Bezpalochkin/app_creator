@@ -1,8 +1,9 @@
 <template>
 <div class="slider">
     <swiper
-        :slides-per-view="2"
-        :space-between="24"
+        :slides-per-view="slidePerView"
+        :space-between="slidesGap"
+        :pagination="true"
     >
         <swiper-slide
             v-for="(slide, index) in data.variant.content"
@@ -18,6 +19,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper/modules'
 
@@ -32,10 +34,13 @@ const props = defineProps({
     }
 })
 
-console.log('Slider data:', props.data)
-console.log('Slider variant:', props.data.variant)
-console.log('Slider styles:', props.data.variant.styles)
+const slidePerView = computed(() => {
+    return props.data.variant.styles.find(el => el.type === 'colsInRow').value
+})
 
+const slidesGap = computed(() => {
+    return props.data.variant.styles.find(el => el.type === 'gap' && el.category === 'layout').value.x
+})
 const modules = [Pagination]
 </script>
 

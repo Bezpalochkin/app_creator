@@ -9,7 +9,7 @@ export const useAppStore = defineStore('appStore', () => {
     const organizationId = ref(null)
     const isLoading = ref(false)
     const error = ref(null)
-    const forbiddenEdit = ref(false)
+    const forbiddenEdit = ref(true)
 
     const navigation = ref([
         // {

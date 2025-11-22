@@ -3,6 +3,12 @@ import { ref, computed } from 'vue'
 
 export const useMockupStore = defineStore('mockupStore', () => {
     const editedComponent = ref(null)
+
+    const history = ref([])
+    const currentHistoryIndex = ref(-1)
+    const maxHistoryLength = 50
+
+    const hasUnsavedChanges = ref(false)
     
     const screens = ref({
         baseSettingsScreen: {
@@ -16,48 +22,6 @@ export const useMockupStore = defineStore('mockupStore', () => {
                 showNavbar: true,
             },
             content: [
-                // {
-                //     name: 'burgerButton',
-                //     settings: {
-                //         draggable: false
-                //     },
-                //     variant: {
-                //         name: "splitBalanceCard",
-                //         styles: {
-                //             card: {
-                //                 background: '',
-                //                 shadow: { 
-                //                     variant: 'Нет', 
-                //                     value: 'none' 
-                //                 },
-                //                 padding: {
-                //                     y: 16,
-                //                     x: 16,
-                //                 },                
-                //                 rounded: { 
-                //                     variant: 'Нет', 
-                //                     value: 0
-                //                 }
-                //             },
-                //             content: {
-                //                 background: 'c7c7c7',
-                //                 height: 64,
-                //                 padding: {
-                //                     y: 16,
-                //                     x: 16,
-                //                 },                
-                //                 rounded: { 
-                //                     variant: '16px', 
-                //                     value: 16
-                //                 },
-                //                 shadow: { 
-                //                     variant: 'Нет', 
-                //                     value: 'none' 
-                //                 },
-                //             }
-                //         },
-                //     }
-                // },
                 {
                     name: 'balance',
                     variant: {
@@ -223,7 +187,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
                             {
                                 name: 'Высота слайда',
                                 type: 'height',
-                                value: 80,
+                                value: 120,
                                 category: 'layout'
                             },                                                                              
                             {
@@ -243,13 +207,19 @@ export const useMockupStore = defineStore('mockupStore', () => {
                             },
                             {
                                 name: 'Количество слвйдов на экране',
-                                type: 'slidesPerView',
+                                type: 'colsInRow',
                                 value: 1,
                                 category: 'layout'
                             },                            
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
+                                value: { x: 16, y: 16 },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Растояние между слайдами',
+                                type: 'gap',
                                 value: { x: 16, y: 16 },
                                 category: 'layout'
                             },
@@ -288,9 +258,139 @@ export const useMockupStore = defineStore('mockupStore', () => {
                                     }
                                 },
                                 category: 'content'
+                            },
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'base'
                             }
                         ]
                     }
+                },
+                {
+                    name: "catalog",
+                    variant: {
+                        name: 'combinationСards',
+                        header: {
+                            show: true,
+                            title: '',
+                            link: true,
+                            styles: {
+                                color: '000000'
+                            },
+                        },                        
+                        content: [
+                            {
+                                show: true,
+                                label: '1',
+                            },
+                            {
+                                show: true,
+                                label: '2',
+                            },
+                            {
+                                show: true,
+                                label: '3',
+                            },
+                            {
+                                show: true,
+                                label: '4',
+                            },
+                            {
+                                show: true,
+                                label: '5',
+                            },
+                            {
+                                show: true,
+                                label: '6',
+                                value: '2 500'
+                            }
+                        ],   
+                        styles: [
+                            {
+                                name: 'Фон блока',
+                                type: 'background',
+                                value: 'transparent',
+                                category: 'base'
+                            },
+                            {
+                                name: 'Внутренний отступ',
+                                type: 'padding',
+                                value: { x: 16, y: 16 },
+                                category: 'base'
+                            },     
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 0
+                                },
+                                category: 'base'
+                            },
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'base'
+                            },
+                            {
+                                name: 'Отступ между карточками',
+                                type: 'gap',
+                                value: { x: 16, y: 16 },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Фон карточки',
+                                type: 'background',
+                                value: 'f2f2f2',
+                                category: 'content'
+                            },
+                            {
+                                name: 'Высота большой карточки',
+                                type: 'height',
+                                value: 220,
+                                category: 'content'
+                            },
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: '16px',
+                                    value: 16
+                                },
+                                category: 'content'
+                            },
+                            {
+                                name: 'Обводка',
+                                type: 'border',
+                                value: {
+                                    color: '',
+                                    width: {
+                                        variant: 'Нет',
+                                        value: 0,
+                                    }
+                                },
+                                category: 'content'
+                            },
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'content'
+                            },                        
+                        ]
+                    },
                 }                
             ]
         },
@@ -392,15 +492,12 @@ export const useMockupStore = defineStore('mockupStore', () => {
             editedComponent.value = null
         } else {
             editedComponent.value = component
-        }
-        
-        console.log('edited', editedComponent.value)        
+        }    
     }
 
-    // Общая функция для проверки использования элемента в mockupStore
     const isElementUsed = (componentType, variantName) => {
         // Для navbar проверяем variant.name
-        if (componentType === 'navBar') {
+        if (componentType === 'navbar') {
             return navbar.value?.variant?.name === variantName
         }
         
@@ -408,7 +505,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
         for (const screenKey in screens.value) {
             const screen = screens.value[screenKey]
             if (screen?.content && Array.isArray(screen.content)) {
-                const found = screen.content.find(item => item.name === variantName)
+                const found = screen.content.find(item => item.variant?.name === variantName)
                 if (found) {
                     return true
                 }
@@ -416,7 +513,21 @@ export const useMockupStore = defineStore('mockupStore', () => {
         }
         
         return false
-    }    
+    }
+
+    const findComponent = (screen, componentType) => {
+        if (componentType === 'navbar' && navbar.value?.name === componentType) {
+            return navbar.value
+        }
+        
+        const screenContent = screens?.value[screen]?.content
+    
+        if (!screenContent) {
+            return
+        }
+    
+        return screenContent.find(el => el.name === componentType)
+    }
 
     return {
         navbar,
@@ -426,6 +537,8 @@ export const useMockupStore = defineStore('mockupStore', () => {
         editedComponent,
         getEditedComponent: computed(() => editedComponent.value),
         editedComponentToggle,
-        isElementUsed
+        isElementUsed,
+        findComponent,
+        hasUnsavedChanges: computed(() => hasUnsavedChanges.value),
     }
 })

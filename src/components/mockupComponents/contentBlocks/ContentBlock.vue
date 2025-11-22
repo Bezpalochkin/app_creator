@@ -28,6 +28,10 @@
             v-if="elementData.name === 'promotions'"
             :data="elementData"        
         />
+        <MainScreenCatalog
+            v-if="elementData.name === 'catalog'"
+            :data="elementData" 
+        />        
     </div>
     <Transition>
         <SelectionFrame 

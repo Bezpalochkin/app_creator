@@ -30,7 +30,7 @@ const props = defineProps({
 @reference "tailwindcss";
 @layer app {
     .navbar {
-        @apply absolute bottom-0 left-[50%] -translate-x-[50%] 
+        @apply absolute bottom-0 left-0 
         grid grid-cols-1 grid-rows-1 items-start justify-items-center w-full z-40
     }      
 }

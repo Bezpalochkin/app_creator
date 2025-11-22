@@ -61,9 +61,6 @@ const props = defineProps({
     }
 })
 
-console.log('setting', props.setting)
-
-
 const emit = defineEmits(['update:modelValue'])
 
 const model = computed({
