@@ -65,6 +65,9 @@ export const useAppStore = defineStore('appStore', () => {
 
                 console.log('fetchData', data.value)
             }
+
+            console.log('fetchData else data', data)
+            console.log('fetchData else data.value', data.value)
         } catch (err) {
             error.value = err
             console.error('Ошибка при загрузке', err)
