@@ -20,6 +20,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
         mainScreen: {
             settings: {
                 showNavbar: true,
+                showLeftMenu: false
             },
             content: [
                 {
@@ -529,7 +530,37 @@ export const useMockupStore = defineStore('mockupStore', () => {
             ]
         },
         leftMenuScreen: {
-
+            settings: {
+                showNavbar: true,
+                showLeftMenu: true
+            },
+            logo: '',
+            content: [
+                {
+                    label: 'Профиль',
+                    icon: 'app-icon-user'
+                },
+                {
+                    label: 'История покупок',
+                    icon: 'app-icon-user'
+                },
+                {
+                    label: 'Акции',
+                    icon: 'app-icon-user'
+                },
+                {
+                    label: 'Программа лояльности',
+                    icon: 'app-icon-user'
+                },
+                {
+                    label: 'Точки продаж',
+                    icon: 'app-icon-user'
+                },
+                {
+                    label: 'Оставить отзыв',
+                    icon: 'app-icon-user'
+                }
+            ]
         },
         catalogScreen: {
 

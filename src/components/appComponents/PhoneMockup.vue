@@ -1,6 +1,10 @@
 <template>
 <div class="mockup">
     <div class="phone">
+        <PhoneLeftMenu 
+            v-if="showSidebar"
+            :elementData="screenContent"
+        />
         <StatusBar/>
         <BurgerButton/>
         <div class="screen">
@@ -36,6 +40,7 @@ import Draggable from 'vuedraggable'
 import StatusBar from '@c/mockupComponents/StatusBar.vue'
 import PhoneNavbar from '@c/mockupComponents/contentBlocks/phoneNavbar/PhoneNavbar.vue'
 import ContentBlock from '@c/mockupComponents/contentBlocks/ContentBlock.vue'
+import PhoneLeftMenu from '@c/mockupComponents/contentBlocks/PhoneLeftMenu.vue'
 
 import { useMockupStore } from '@s/mockupStore'
 
@@ -45,7 +50,10 @@ const props = defineProps({
     data: {
         type: Object,
         required: true
-    }
+    },
+    showSidebar: {
+        type: Boolean
+    } 
 })
 
 const screenContent = computed({
@@ -60,6 +68,8 @@ const screenContent = computed({
         }
     }
 })
+
+console.log('screenContent', screenContent.value)
 
 const checkMove = (evt) => {
     // console.log('checkMove', {

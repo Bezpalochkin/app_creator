@@ -40,7 +40,6 @@
                 :data="variant"
                 :component-type="componentType"
                 @click="handleVariantClick(componentType, variant.name)"
-                :class="isRowsContainer(componentType) ? 'h-[5rem]' : 'h-[10rem]'"
             />
         </div>
     </Panel>

@@ -27,11 +27,11 @@ export const useAppStore = defineStore('appStore', () => {
             icon: 'pi-mobile',
             label: 'Главная страница'
         },
-        // {
-        //     routeName: ROUTE_NAMES.LEFT_MENU_SCREEN,
-        //     icon: 'pi-bars',
-        //     label: 'Боковое меню'
-        // },
+        {
+            routeName: ROUTE_NAMES.LEFT_MENU_SCREEN,
+            icon: 'pi-bars',
+            label: 'Боковое меню'
+        },
         // {
         //     routeName: ROUTE_NAMES.CATALOG_SCREEN,
         //     icon: 'pi-objects-column',
@@ -52,21 +52,15 @@ export const useAppStore = defineStore('appStore', () => {
         error.value = null
     
         try {
-            console.log('fetchData get start')
             await get(`/app-creator?id=${organizationId.value}`)
-            
-            console.log('fetchData get end')
     
             // Добавить проверку и логирование
-            console.log('Response data:', data.value)
-            
             if (data.value?.success) {
                 console.log('data success')
                 // Явно логируем значение
                 console.log('forbiddenEdit from response:', data.value?.forbiddenEdit)
                 
                 forbiddenEdit.value = data.value?.forbiddenEdit
-                console.log('forbiddenEdit set to:', forbiddenEdit.value)
             } else {
                 console.warn('Response not successful or data missing')
                 forbiddenEdit.value = false // или true, в зависимости от логики
@@ -85,7 +79,6 @@ export const useAppStore = defineStore('appStore', () => {
     const isInitialized = ref(false)
 
     const initialize = async (id, force = false) => {
-        console.log('initialize start')
         if (!id) {
             throw new Error('Organization ID is required')
         }

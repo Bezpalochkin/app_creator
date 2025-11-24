@@ -2,6 +2,7 @@
 <div class="screen__content">
     <PhoneMockup
         :data="mockupStore.getScreens.mainScreen"
+        :showSidebar="false"
     />
 </div>
 </template>

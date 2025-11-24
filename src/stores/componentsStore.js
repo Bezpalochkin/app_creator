@@ -10,6 +10,7 @@ import splitBalanceCardImg from '@a/variants/balance/splitbalancecard.webp'
 import balanceWwithQrImg from '@a/variants/balance/balancewithqr.webp'
 import balanceWithLogoImg from '@a/variants/balance/balancewithlogo.webp'
 import splitBalanceWithLogoImg from '@a/variants/balance/splitbalancewithlogo.webp'
+import pointsSlider from '@a/variants/points/points_slider.webp'
 
 export const useComponentsStore = defineStore('componentsStore', () => {
     const templates = ref({
@@ -1102,7 +1103,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
             variants: [
                 {
                     name: "slider",
-                    image: '',
+                    image: pointsSlider,
                     header: {
                         show: true,
                         title: '',

@@ -24,13 +24,17 @@ const creatorRoutes = [
                 rightSidebar: 'settings'
             },
             component: () => import('@v/StartScreenEdit.vue'),
-        }
-//     {
-//         path: ROUTE_NAMES.LEFT_MENU_SCREEN,
-//         name: ROUTE_NAMES.LEFT_MENU_SCREEN,
-//         meta: { screen: 'leftMenu' },
-//         component: () => import('@v/LeftMenuView.vue'),
-//     },
+        },
+        {
+            path: ROUTE_NAMES.LEFT_MENU_SCREEN,
+            name: ROUTE_NAMES.LEFT_MENU_SCREEN,
+            meta: { 
+                screen: 'leftMenu',
+                leftSidebar: 'content',
+                rightSidebar: 'settings'
+            },
+            component: () => import('@v/leftMenuScreenEdit.vue'),
+        },
 //     {
 //         path: ROUTE_NAMES.CATALOG_SCREEN,
 //         name: ROUTE_NAMES.CATALOG_SCREEN,

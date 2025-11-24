@@ -46,12 +46,12 @@ const handleClick = () => {
 @reference "tailwindcss";
 @layer app {
     .variant {
-        @apply relative grid place-items-center w-full overflow-visible
+        @apply relative grid place-items-center w-full min-h-[5rem] py-[.5rem] overflow-visible
         border-2 border-(--pb-surfave-variant-color) rounded-[1rem] cursor-pointer
     }
 
     .variant img {
-        @apply w-[90%]
+        @apply w-full h-auto
     }
 
     ::v-deep(.p-tag) {

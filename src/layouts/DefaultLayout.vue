@@ -27,10 +27,8 @@ const initializeApp = async () => {
     if (!organizationId) {
         return
     }
-    console.log('initializeApp if start')
     // Инициализируем только если organizationId изменился
     if (appStore.organizationId !== organizationId) {
-        console.log('initializeApp appStore.initialize')
         await appStore.initialize(organizationId)
     }
 }

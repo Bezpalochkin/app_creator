@@ -1,11 +1,14 @@
 <template>
 <aside>
-  <div class="bar__header">{{ props.type === 'components' ? 'Компоненты' : 'Настройки' }}</div>
+  <div class="bar__header">{{ getLabel(props.type) }}</div>
   <ComponentVariants
     v-if="props.type === 'components'"
   />
   <ComponentSettings
     v-if="props.type === 'settings'"
+  />
+  <ContentSettings
+    v-if="props.type === 'content'"
   />
 </aside>
 </template>
@@ -13,6 +16,7 @@
 <script setup>
 import ComponentVariants from '@c/appComponents/componentsBar/ComponentVariants.vue'
 import ComponentSettings from '@c/appComponents/componentsBar/ComponentSettings.vue'
+import ContentSettings from '@c/appComponents/componentsBar/ContentSettings.vue'
 
 const props = defineProps({
     type: {
@@ -20,6 +24,15 @@ const props = defineProps({
         required: true
     }
 })
+
+const getLabel = (type) => {
+    const labels = {
+        components: 'Компоненты',
+        settings: 'Настройки',
+        content: 'Контент'
+    }
+    return labels[type] || type
+}
 </script>
 
 <style scoped>
