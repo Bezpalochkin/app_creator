@@ -44,7 +44,6 @@ export const useAppStore = defineStore('appStore', () => {
     }
 
     const fetchData = async (force = false) => {
-        console.log('fetchData start')
         if (!organizationId.value) {
             throw new Error('Organization ID is required')
         }
@@ -53,9 +52,13 @@ export const useAppStore = defineStore('appStore', () => {
         error.value = null
 
         try {
+            console.log('fetchData get start')
             await get(`/app-creator?id=${organizationId.value}`)
+            
+            console.log('fetchData get end')
 
             if (data.value?.success) {
+                console.log('data success')
                 // Устанавливаем данные из ответа
                 forbiddenEdit.value = data.value?.forbiddenEdit || false
                 // Здесь можно установить другие данные

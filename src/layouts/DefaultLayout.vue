@@ -21,16 +21,16 @@ const appStore = useAppStore()
 
 // Функция инициализации
 const initializeApp = async () => {
-    console.log('initializeApp start')
     // Пробуем получить organizationId из params или query
     const organizationId = route.params.organizationId || route.query.organizationId
     
     if (!organizationId) {
         return
     }
-
+    console.log('initializeApp if start')
     // Инициализируем только если organizationId изменился
     if (appStore.organizationId !== organizationId) {
+        console.log('initializeApp appStore.initialize')
         await appStore.initialize(organizationId)
     }
 }
