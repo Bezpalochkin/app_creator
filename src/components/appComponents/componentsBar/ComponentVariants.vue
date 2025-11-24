@@ -149,14 +149,14 @@ const getLabel = (componentData, type) => {
         navbar: 'Нижнее меню',
         promotions: 'Акции',
         catalog: 'Каталог/меню',
-        point: 'Точки продаж',
+        points: 'Точки продаж',
         news: 'Новости'
     }
     return labels[type] || type
 }
 
 const isRowsContainer = (componentType) => {
-    const rowsTypes = ['balance', 'navbar', 'promotions']
+    const rowsTypes = ['balance', 'navbar', 'promotions', 'points']
     
     return rowsTypes.includes(componentType) ? true : false
 }

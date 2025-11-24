@@ -214,7 +214,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
                             {
                                 name: 'Растояние между слайдами',
                                 type: 'gap',
-                                value: { x: 16, y: 16 },
+                                value: { x: 8, y: 8 },
                                 category: 'layout'
                             },
                             {
@@ -386,7 +386,146 @@ export const useMockupStore = defineStore('mockupStore', () => {
                             },                        
                         ]
                     },
-                }                
+                },
+                {
+                    name: "points",
+                    show: true,
+                    variant: {
+                        name: "slider",
+                        header: {
+                            show: true,
+                            title: '',
+                            link: true,
+                            styles: {
+                                color: '000000'
+                            },
+                        },                        
+                        content: [
+                            {
+                                show: true,
+                                label: 'Статус',
+                                value: 'Базовй'
+                            },
+                            {
+                                show: true,
+                                label: 'Бонусы',
+                                value: '2 500'
+                            },
+                            {
+                                show: true,
+                                label: 'Имя',
+                                value: 'Александр'
+                            }
+                        ],  
+                        styles: [
+                            {
+                                name: 'Фон блока',
+                                type: 'background',
+                                value: '',
+                                category: 'base'
+                            },
+                            {
+                                name: 'Внутренний отступ',
+                                type: 'padding',
+                                value: { x: 16, y: 16 },
+                                category: 'base'
+                            },     
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 0
+                                },
+                                category: 'base'
+                            },    
+                            {
+                                name: 'Высота слайда',
+                                type: 'height',
+                                value: 120,
+                                category: 'layout'
+                            },                                                                              
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'base'
+                            },                       
+                            {
+                                name: 'Фон карточки',
+                                type: 'background',
+                                value: 'F2F2F2',
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Количество слвйдов на экране',
+                                type: 'colsInRow',
+                                value: 3,
+                                category: 'layout'
+                            },                            
+                            {
+                                name: 'Внутренний отступ',
+                                type: 'padding',
+                                value: { x: 16, y: 16 },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Растояние между слайдами',
+                                type: 'gap',
+                                value: { x: 8, y: 8 },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: '16px',
+                                    value: 16
+                                },
+                                category: 'layout'
+                            },                            
+                            {
+                                name: 'Тень карточки',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Цвет текста',
+                                type: 'color',
+                                value: '000000',
+                                category: 'content'                            
+                            },                         
+                            {
+                                name: 'Обводка',
+                                type: 'border',
+                                value: {
+                                    color: '',
+                                    width: {
+                                        variant: 'Нет',
+                                        value: 0,
+                                    }
+                                },
+                                category: 'content'
+                            },
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'base'
+                            }
+                        ]
+                    }
+                },                               
             ]
         },
         leftMenuScreen: {

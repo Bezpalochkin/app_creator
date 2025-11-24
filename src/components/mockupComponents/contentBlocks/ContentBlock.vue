@@ -25,7 +25,7 @@
             :data="elementData"
         />
         <SliderComponetnt
-            v-if="elementData.name === 'promotions'"
+            v-if="isSlider"
             :data="elementData"        
         />
         <MainScreenCatalog
@@ -44,6 +44,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import BurgerButton from '@c/mockupComponents/contentBlocks/BurgerButton.vue'
 import { useMockupStore } from '@s/mockupStore'
 
@@ -58,6 +59,8 @@ const props = defineProps({
         type: Number
     }
 })
+
+const isSlider = computed(() => props.elementData.name === 'promotions' || props.elementData.name === 'points')
 </script>
 
 <style scoped>

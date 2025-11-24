@@ -44,6 +44,7 @@ export const useAppStore = defineStore('appStore', () => {
     }
 
     const fetchData = async (force = false) => {
+        console.log('fetchData start')
         if (!organizationId.value) {
             throw new Error('Organization ID is required')
         }
@@ -74,6 +75,7 @@ export const useAppStore = defineStore('appStore', () => {
     const isInitialized = ref(false)
 
     const initialize = async (id, force = false) => {
+        console.log('initialize start')
         if (!id) {
             throw new Error('Organization ID is required')
         }
