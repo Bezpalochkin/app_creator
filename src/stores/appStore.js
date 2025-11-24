@@ -47,27 +47,31 @@ export const useAppStore = defineStore('appStore', () => {
         if (!organizationId.value) {
             throw new Error('Organization ID is required')
         }
-
+    
         isLoading.value = true
         error.value = null
-
+    
         try {
             console.log('fetchData get start')
             await get(`/app-creator?id=${organizationId.value}`)
             
             console.log('fetchData get end')
-
+    
+            // Добавить проверку и логирование
+            console.log('Response data:', data.value)
+            
             if (data.value?.success) {
                 console.log('data success')
-                // Устанавливаем данные из ответа
-                forbiddenEdit.value = data.value?.forbiddenEdit || false
-                // Здесь можно установить другие данные
-
-                console.log('fetchData', data.value)
+                // Явно логируем значение
+                console.log('forbiddenEdit from response:', data.value?.forbiddenEdit)
+                
+                forbiddenEdit.value = data.value?.forbiddenEdit
+                console.log('forbiddenEdit set to:', forbiddenEdit.value)
+            } else {
+                console.warn('Response not successful or data missing')
+                forbiddenEdit.value = false // или true, в зависимости от логики
             }
-
-            console.log('fetchData else data', data)
-            console.log('fetchData else data.value', data.value)
+    
         } catch (err) {
             error.value = err
             console.error('Ошибка при загрузке', err)
