@@ -8,19 +8,21 @@
                 class="phone__content"
                 v-model="screenContent"
                 ghost-class="dragged__placeholder"
-                :move="checkMove"
                 item-key="name"
                 :handle="'.drag__handle'"
-            >
-                <template #item="{element}">
+            >              
+                <template #item="{element, index}">
                     <ContentBlock
+                        v-if="element.variant"
                         :elementData="element"
+                        :index="index"
                         @click="mockupStore.editedComponentToggle(element)"
-                    />            
+                    />
                 </template>
             </Draggable>
         </div>
         <PhoneNavbar
+            v-if="mockupStore.getNavbar.variant"
             :elementData="mockupStore.getNavbar"
             @click="mockupStore.editedComponentToggle(mockupStore.getNavbar)"
         />

@@ -52,7 +52,7 @@ const modules = [Pagination]
     }
 
     .swiper {
-        @apply w-full
+        @apply w-full !z-0 !overflow-visible
     }
 }
 </style>

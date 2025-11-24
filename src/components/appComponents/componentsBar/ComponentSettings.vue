@@ -1,7 +1,7 @@
 <template>
 <div class="sidebar__content">
     <div
-        v-if="mockupStore.getEditedComponent"
+        v-if="mockupStore.getEditedComponent && styles"
         class="content__items"
     >
         <Panel
@@ -31,8 +31,9 @@ import SettingComponent from '@c/appComponents/componentsBar/SettingComponent.vu
 const mockupStore = useMockupStore()
 
 const styles = computed(() => {
-    return mockupStore.getEditedComponent.variant.styles
+    return mockupStore.getEditedComponent?.variant?.styles || []
 })
+
 
 const filteredStyles = (categoryType) => {
     return styles.value.filter(el => el.category === categoryType)

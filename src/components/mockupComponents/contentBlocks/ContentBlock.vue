@@ -36,6 +36,8 @@
     <Transition>
         <SelectionFrame 
             v-if="mockupStore.getEditedComponent?.name === elementData.name"
+            :style="$setStyles(props.elementData.variant.styles, 'base', ['rounded'])"
+            :index="index"
         />
     </Transition>    
 </div>
@@ -51,6 +53,9 @@ const props = defineProps({
     elementData: {
         type: Object,
         required: true
+    },
+    index: {
+        type: Number
     }
 })
 </script>

@@ -8,12 +8,15 @@
         v-for="item in props.data.content"
         :itemData="item"
         :itemStyles="props.data.styles"
-    />
+    />  
 </div>
 </template>
 
 <script setup>
 import PhoneNavbarItem from '@c/mockupComponents/contentBlocks/phoneNavbar/ui/PhoneNavbarItem.vue'
+import { useMockupStore } from '@s/mockupStore'
+
+const mockupStore = useMockupStore()
 
 const props = defineProps({
     data: {

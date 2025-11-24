@@ -11,12 +11,23 @@
         v-if="elementData.variant.name === 'floatNavbar'"
         :data="elementData.variant"
     />
+    <Transition>
+        <SelectionFrame 
+            v-if="mockupStore.getEditedComponent?.name === elementData.name"
+            :class="elementData.variant.name === 'fixedNavbar' ? 'rounded-b-[2.15rem]' : ''"
+            :style="$setStyles(props.elementData.variant.styles, 'layout', ['rounded'])"
+        />
+    </Transition>      
 </div>
 </template>
 
 <script setup>
 import FixedNavbar from '@c/mockupComponents/contentBlocks/phoneNavbar/FixedNavbar.vue'
 import FloatNavbar from '@c/mockupComponents/contentBlocks/phoneNavbar/FloatNavbar.vue'
+
+import { useMockupStore } from '@s/mockupStore'
+
+const mockupStore = useMockupStore()
 
 const props = defineProps({
     elementData: {

@@ -8,7 +8,7 @@
         v-for="item in props.data.content"
         :itemData="item"
         :itemStyles="props.data.styles"
-    />
+    />    
 </div>
 </template>
 

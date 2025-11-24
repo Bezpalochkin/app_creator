@@ -61,8 +61,6 @@ const props = defineProps({
     }
 })
 
-console.log('border modelValue', props.modelValue)
-
 const variants = ref([
     { variant: 'Нет', value: 0 },
     { variant: '1px', value: 1 },

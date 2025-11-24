@@ -3,19 +3,32 @@
     <Panel
         v-for="(componentData, componentType) in componentsStore.getTemplates"
         :key="componentType"
-        :header="getLabel(componentData, componentType)"
         toggleable
-        :class="{ 'active-panel': isPanelActive(componentType) }"
         v-model:collapsed="collapsedComponents[componentType]"
+        :class="{ 'active-panel': isPanelActive(componentType) }"
     >
+        <!-- :class="{ 'active-panel': isPanelActive(componentType) }" -->
+        <template #header>
+            <div class="header__container">
+                <Button
+                    variant="text"
+                    severity="success"
+                    icon="pi pi-power-off"
+                    rounded
+                    size="small"
+                />
+                <span>{{ getLabel(componentData, componentType) }}</span>
+            </div>
+        </template>
         <template #togglebutton>
             <Button
                 variant="text"
                 rounded
                 severity="contrast"
-                :icon="isPanelActive(componentType) ? 'pi pi-minus' : 'pi pi-plus'"
                 class="panel__expand_btn"
-                @click="expandComponent(componentType)"
+                size="small"
+                :icon="getToggleIcon(componentType)"
+                @click="togglePanel(componentType)"
             />
         </template>
         <div 
@@ -35,45 +48,53 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeMount, watch } from 'vue'
 import { useComponentsStore } from '@s/componentsStore.js'
 import { useMockupStore } from '@s/mockupStore'
+import { useRoute } from 'vue-router'
 
-const collapsedComponents = computed(() => {
-    const allCollapsed = Object.keys(componentsStore.getTemplates).reduce((acc, key) => {
+const route = useRoute()
+const componentsStore = useComponentsStore()
+const mockupStore = useMockupStore()
+
+const collapsedComponents = ref({})
+
+const initializePanels = () => {
+    const initialState = Object.keys(componentsStore.getTemplates).reduce((acc, key) => {
         acc[key] = true
         return acc
     }, {})
     
-    if (currentEditedComponentType.value) {
-        allCollapsed[currentEditedComponentType.value] = false
-    }
+    collapsedComponents.value = initialState
     
-    return allCollapsed
-})
-
-const componentsStore = useComponentsStore()
-const mockupStore = useMockupStore()
-
-const currentEditedComponentType = computed(() => {
-    return mockupStore.editedComponent?.name || null
-})
-
-const isPanelActive = (componentType) => {
-    return currentEditedComponentType.value === componentType
+    if (mockupStore.editedComponent?.name) {
+        expandPanel(mockupStore.editedComponent.name)
+    }
 }
 
-const expandComponent = (componentType) => {
-    let component = null
-    
-    if (componentType === 'navbar') {
-        component = mockupStore.navbar
-    } else {
-        component = mockupStore.findComponent('mainScreen', componentType)
+const isPanelActive = (componentType) => {
+    return !collapsedComponents.value[componentType]
+}
+
+const togglePanel = (componentType) => {
+    if (componentType in collapsedComponents.value) {
+        const willExpand = collapsedComponents.value[componentType]
+        const component = mockupStore.getComponentFromMockup(route.meta.screen, componentType)
+
+        if (willExpand) {
+            Object.keys(collapsedComponents.value).forEach(key => {
+                collapsedComponents.value[key] = true
+            })
+            collapsedComponents.value[componentType] = false
+            
+            if (component && component.variant) {
+                mockupStore.editedComponentToggle(component)
+            }
+        } else {
+            collapsedComponents.value[componentType] = true
+            mockupStore.editedComponentToggle(component)
+        }
     }
-    
-    if (!component) return
-    mockupStore.editedComponentToggle(component)
 }
 
 const cloneVariant = (variant) => JSON.parse(JSON.stringify(variant))
@@ -139,6 +160,38 @@ const isRowsContainer = (componentType) => {
     
     return rowsTypes.includes(componentType) ? true : false
 }
+
+const expandPanel = (componentType) => {
+    if (componentType in collapsedComponents.value) {
+        Object.keys(collapsedComponents.value).forEach(key => {
+            collapsedComponents.value[key] = true
+        })
+
+        collapsedComponents.value[componentType] = false
+    }
+}
+
+const getToggleIcon = (componentType) => {
+    return collapsedComponents.value[componentType] ? 'pi pi-angle-down' : 'pi pi-angle-up'
+}
+
+watch(
+    () => mockupStore.editedComponent,
+    (newEditedComponent, oldEditedComponent) => {
+        if (oldEditedComponent?.name && oldEditedComponent.name in collapsedComponents.value) {
+            collapsedComponents.value[oldEditedComponent.name] = true
+        }
+        
+        if (newEditedComponent?.name && newEditedComponent.name in collapsedComponents.value) {
+            expandPanel(newEditedComponent.name)
+        }
+    },
+    { deep: true }
+)
+
+onBeforeMount(() => {
+    initializePanels()
+})
 </script>
 
 <style scoped>
@@ -165,12 +218,24 @@ const isRowsContainer = (componentType) => {
         @apply rounded-[1rem]
     }
 
+    ::v-deep(.p-panel-toggleable .p-panel-header) {
+        @apply p-[0.375rem_.5rem]
+    }
+
     ::v-deep(.p-panel-content) {
         @apply p-[0_1rem_1rem]
     }
 
     ::v-deep(.p-panel.active-panel) {
         @apply border-2 border-(--pb-primary-color) shadow-lg
-    }    
+    }
+
+    .header__container {
+        @apply grid grid-rows-1 grid-cols-[2rem_1fr] gap-x-[.5rem] items-center
+    }
+
+    .header__container span {
+        @apply font-medium text-[1rem]
+    }
 }
 </style>

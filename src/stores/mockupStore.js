@@ -24,16 +24,9 @@ export const useMockupStore = defineStore('mockupStore', () => {
             content: [
                 {
                     name: 'balance',
+                    show: true,
                     variant: {
-                        name: "splitBalanceCard",
-                        // header: {
-                        //     show: true,
-                        //     title: '',
-                        //     link: true,
-                        //     styles: {
-                        //         color: '000000'
-                        //     },
-                        // },                        
+                        name: "splitBalanceCard",                      
                         content: [
                             {
                                 show: true,
@@ -135,6 +128,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
                 },
                 {
                     name: "promotions",
+                    show: true,
                     variant: {
                         name: "slider",
                         header: {
@@ -273,6 +267,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
                 },
                 {
                     name: "catalog",
+                    show: false,                    
                     variant: {
                         name: 'combinationСards',
                         header: {
@@ -515,18 +510,53 @@ export const useMockupStore = defineStore('mockupStore', () => {
         return false
     }
 
-    const findComponent = (screen, componentType) => {
-        if (componentType === 'navbar' && navbar.value?.name === componentType) {
-            return navbar.value
-        }
-        
+    const getComponentFromMockup = (screen, componentName) => {
         const screenContent = screens?.value[screen]?.content
-    
+
         if (!screenContent) {
-            return
+            return null
         }
+
+        return screenContent.find(el => el.name === componentName) 
+
+        // if (componentName === 'navbar' && navbar.value?.name === componentName) {
+        //     return navbar.value
+        // }
+        
+        // const screenContent = screens?.value[screen]?.content
     
-        return screenContent.find(el => el.name === componentType)
+        // if (!screenContent) {
+        //     return
+        // }
+    
+        // return screenContent.find(el => el.name === componentType)
+    }
+
+    const deleteComponentFromMockup = (screen, component) => {
+        // console.log('Deleting component:', component.name)
+        
+        // // Если удаляемый компонент сейчас редактируется - сбрасываем editedComponent
+        // if (editedComponent.value?.name === component.name) {
+        //     editedComponent.value = null
+        // }
+        
+        // // Выполняем удаление
+        // if(component.name === 'navbar') {
+        //     navbar.value.variant = null
+        // } else {
+        //     const currentComponent = findComponent(component.name, screen)
+        //     if (currentComponent) {
+        //         currentComponent.variant = null
+        //     }
+        // }
+    }
+
+    const addComponentToMockup = (component, screen) => {
+        const componentIsAdded = findComponent(component.name, screen)
+
+        // console.log('addComponentToMockup', componentIsAdded)
+        console.log('addComponentToMockup', component)
+        console.log('componentIsAdded', componentIsAdded)
     }
 
     return {
@@ -538,7 +568,9 @@ export const useMockupStore = defineStore('mockupStore', () => {
         getEditedComponent: computed(() => editedComponent.value),
         editedComponentToggle,
         isElementUsed,
-        findComponent,
+        getComponentFromMockup,
         hasUnsavedChanges: computed(() => hasUnsavedChanges.value),
+        deleteComponentFromMockup,
+        addComponentToMockup
     }
 })
