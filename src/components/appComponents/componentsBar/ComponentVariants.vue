@@ -1,7 +1,7 @@
 <template>
 <div class="sidebar__content">
     <Panel
-        v-for="(componentData, componentType) in componentsStore.getTemplates"
+        v-for="(componentData, componentType) in componentsStore.getTemplates[route.meta.screen]"
         :key="componentType"
         toggleable
         v-model:collapsed="collapsedComponents[componentType]"
@@ -59,7 +59,7 @@ const mockupStore = useMockupStore()
 const collapsedComponents = ref({})
 
 const initializePanels = () => {
-    const initialState = Object.keys(componentsStore.getTemplates).reduce((acc, key) => {
+    const initialState = Object.keys(componentsStore.getTemplates[route.meta.screen]).reduce((acc, key) => {
         acc[key] = true
         return acc
     }, {})

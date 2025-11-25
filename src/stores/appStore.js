@@ -32,11 +32,11 @@ export const useAppStore = defineStore('appStore', () => {
             icon: 'pi-bars',
             label: 'Боковое меню'
         },
-        // {
-        //     routeName: ROUTE_NAMES.CATALOG_SCREEN,
-        //     icon: 'pi-objects-column',
-        //     label: 'Каталог'
-        // },
+        {
+            routeName: ROUTE_NAMES.CATALOG_SCREEN,
+            icon: 'pi-objects-column',
+            label: 'Каталог'
+        },
     ])
 
     const setOrganizationId = (id) => {

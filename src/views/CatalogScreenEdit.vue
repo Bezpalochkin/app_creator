@@ -1,16 +1,22 @@
 <template>
 <div class="screen__content">
     <PhoneMockup
-        :data="mockupStore.getScreens.mainScreen"
+        :data="screenData"
     />
 </div>
 </template>
 
 <script setup>
+import { computed, onBeforeMount } from 'vue'
 import PhoneMockup from '@c/appComponents/PhoneMockup.vue'
 import { useMockupStore } from '@s/mockupStore'
 
 const mockupStore = useMockupStore()
+
+const screenData = computed(() => {
+    return mockupStore.getScreens.catalogScreen
+})
+
 mockupStore.editedComponentToggle(null)
 </script>
 

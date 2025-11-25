@@ -31,7 +31,11 @@
         <MainScreenCatalog
             v-if="elementData.name === 'catalog'"
             :data="elementData" 
-        />        
+        />
+        <CatalogCategories
+            v-if="elementData.name === 'catalogCategories'"
+            :data="elementData" 
+        />
     </div>
     <Transition>
         <SelectionFrame 
@@ -46,6 +50,10 @@
 <script setup>
 import { computed } from 'vue'
 import BurgerButton from '@c/mockupComponents/contentBlocks/BurgerButton.vue'
+import Balance from '@c/mockupComponents/contentBlocks/balance/Balance.vue'
+import SliderComponetnt from '@c/mockupComponents/contentBlocks/promotions/SliderComponetnt.vue'
+import MainScreenCatalog from '@c/mockupComponents/contentBlocks/catalog/MainScreenCatalog.vue'
+import CatalogCategories from '@c/mockupComponents/contentBlocks/catalog/CatalogCategories.vue'
 import { useMockupStore } from '@s/mockupStore'
 
 const mockupStore = useMockupStore()
@@ -67,7 +75,7 @@ const isSlider = computed(() => props.elementData.name === 'promotions' || props
 @reference "tailwindcss";
 @layer app {
     .component {
-        @apply relative grid place-items-start w-full
+        @apply relative grid grid-cols-1 place-items-start w-full
     }
 
     .component__container {

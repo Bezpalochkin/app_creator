@@ -2,19 +2,24 @@
 <div class="mockup">
     <div class="phone">
         <PhoneLeftMenu 
-            v-if="props.data.settings.showLeftMenu"
+            v-if="route.meta.screen === 'leftMenu'"
             :elementData="props.data"
         />
         <StatusBar/>
-        <BurgerButton/>
-        <div class="screen">
+        <BurgerButton
+            v-if="route.meta.screen === 'mainScreen'"
+        />
+        <div 
+            v-if="route.meta.screen === 'mainScreen'"
+            class="screen"
+        >
             <Draggable
                 class="phone__content"
                 v-model="screenContent"
                 ghost-class="dragged__placeholder"
                 item-key="name"
                 :handle="'.drag__handle'"
-            >              
+            >
                 <template #item="{element, index}">
                     <ContentBlock
                         v-if="element.variant"
@@ -24,6 +29,14 @@
                     />
                 </template>
             </Draggable>
+        </div>
+        <div 
+            v-if="route.meta.screen === 'catalogScreen'"
+            class="screen"
+        >
+            <CatalogScreen
+                :screenData="props.data"
+            />
         </div>
         <PhoneNavbar
             v-if="mockupStore.getNavbar.variant"
@@ -41,10 +54,14 @@ import StatusBar from '@c/mockupComponents/StatusBar.vue'
 import PhoneNavbar from '@c/mockupComponents/contentBlocks/phoneNavbar/PhoneNavbar.vue'
 import ContentBlock from '@c/mockupComponents/contentBlocks/ContentBlock.vue'
 import PhoneLeftMenu from '@c/mockupComponents/contentBlocks/PhoneLeftMenu.vue'
+import CatalogScreen from '@c/mockupComponents/mockupScreens/CatalogScreen.vue'
 
+import { useRoute } from 'vue-router'
 import { useMockupStore } from '@s/mockupStore'
 
 const mockupStore = useMockupStore()
+const route = useRoute()
+
 
 const props = defineProps({
     data: {
@@ -52,6 +69,8 @@ const props = defineProps({
         required: true
     }
 })
+
+console.log('props', props.data)
 
 const screenContent = computed({
     get: () => props.data.content,

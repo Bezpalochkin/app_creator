@@ -48,19 +48,51 @@ const contentItemsVariant = ref([
     },
     {
         label: 'Акции',
-        icon: 'app-icon-action_3'
+        icon: 'app-icon-promo'
     },
     {
         label: 'Программа лояльности',
         icon: 'app-icon-coins'
     },
     {
-        label: 'Точки продаж',
+        label: 'Адреса',
         icon: 'app-icon-location'
+    },
+    {
+        label: 'Каталог/меню',
+        icon: 'app-icon-dinner'
+    },
+    {
+        label: 'Контакты',
+        icon: 'app-icon-contacts'
+    },
+    {
+        label: 'Условия доставки',
+        icon: 'app-icon-delivery-truck'
+    },
+    {
+        label: 'Записаться',
+        icon: 'app-icon-date'
     },
     {
         label: 'Оставить отзыв',
         icon: 'app-icon-commets_2'
+    },
+    {
+        label: 'Промокод',
+        icon: 'app-icon-promokod'
+    },
+    {
+        label: 'Корзина',
+        icon: 'app-icon-shop2'
+    },
+    {
+        label: 'Код авторизации',
+        icon: 'app-icon-qr'
+    },
+    {
+        label: 'О компании',
+        icon: 'app-icon-information'
     }
 ])
 

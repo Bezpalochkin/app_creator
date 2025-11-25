@@ -587,7 +587,31 @@ export const useMockupStore = defineStore('mockupStore', () => {
             }
         },
         catalogScreen: {
-
+            settings: {
+                showNavbar: true,
+                showLeftMenu: false
+            },
+            content: [
+                {
+                    name: 'catalogCategories',
+                    show: true,
+                    variant: {
+                        name: 'chipSlider',                      
+                        content: [],
+                        styles: [
+                            {
+                                name: 'Внутренний отступ',
+                                type: 'padding',
+                                value: { x: 16, y: 16 },
+                                category: 'base'
+                            },                            
+                        ]
+                    }
+                },
+                {
+                    name: 'goodsCard',
+                }
+            ]
         },        
     })
 

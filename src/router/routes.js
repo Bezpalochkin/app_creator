@@ -35,12 +35,16 @@ const creatorRoutes = [
             },
             component: () => import('@v/leftMenuScreenEdit.vue'),
         },
-//     {
-//         path: ROUTE_NAMES.CATALOG_SCREEN,
-//         name: ROUTE_NAMES.CATALOG_SCREEN,
-//         meta: { screen: 'catalogScreen' },
-//         component: () => import('@v/CatalogScreenView.vue'),
-//     },
+        {
+            path: ROUTE_NAMES.CATALOG_SCREEN,
+            name: ROUTE_NAMES.CATALOG_SCREEN,
+            meta: { 
+                screen: 'catalogScreen', 
+                leftSidebar: 'components',
+                rightSidebar: 'settings'
+            },                
+            component: () => import('@v/CatalogScreenEdit.vue'),
+        },
 ]
 const routes = [
     {
