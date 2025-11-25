@@ -117,7 +117,7 @@ const updateVariantInScreens = (componentType, variantData) => {
 }
 
 const handleVariantClick = (componentType, variantName) => {
-    const template = componentsStore.getTemplates[componentType]
+    const template = componentsStore.getTemplates[route.meta.screen][componentType]
     if (!template?.variants?.length) {
         console.warn(`[ComponentVariants] Не найден шаблон для компонента "${componentType}"`)
         return
@@ -149,7 +149,8 @@ const getLabel = (componentData, type) => {
         promotions: 'Акции',
         catalog: 'Каталог/меню',
         points: 'Точки продаж',
-        news: 'Новости'
+        news: 'Новости',
+        catalogCategories: 'Категории'
     }
     return labels[type] || type
 }

@@ -7,6 +7,7 @@
         <Chip 
             v-for="(slide, index) in categoruiesNames"
             :label="slide"
+            :style="$setStyles(props.elementData.styles, 'content', 'all')"
         />
     </div>
 </div>
@@ -14,6 +15,13 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+
+const props = defineProps({
+    elementData: {
+        type: Object,
+        required: true
+    }
+})
 
 const categoruiesNames = ref(['Пицца', 'Римская пицца', 'Закуски', 'Напитки'])
 

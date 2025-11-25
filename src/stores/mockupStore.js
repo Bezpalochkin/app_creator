@@ -596,15 +596,74 @@ export const useMockupStore = defineStore('mockupStore', () => {
                     name: 'catalogCategories',
                     show: true,
                     variant: {
-                        name: 'chipSlider',                      
-                        content: [],
+                        name: 'equalCards',                      
+                        content: [
+                            {
+                                show: true,
+                                label: '1',
+                            },
+                            {
+                                show: true,
+                                label: '2',
+                            },
+                            {
+                                show: true,
+                                label: '3',
+                            },
+                            {
+                                show: true,
+                                label: '4',
+                            },
+                            {
+                                show: true,
+                                label: '5',
+                            },
+                            {
+                                show: true,
+                                label: '6',
+                                value: '2 500'
+                            }
+                        ],
                         styles: [
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
                                 category: 'base'
-                            },                            
+                            },  
+                            {
+                                name: 'Цвет пункта',
+                                type: 'background',
+                                value: '00ff00',
+                                category: 'content'
+                            },
+                            {
+                                name: 'Количество карточек в ряду',
+                                type: 'colsInRow',
+                                value: 2,
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Отступ между карточками',
+                                type: 'gap',
+                                value: { x: 8, y: 8 },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Высота карточки',
+                                type: 'height',
+                                value: 175,
+                                category: 'content'
+                            },
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: '16px',
+                                    value: 16
+                                },
+                                category: 'content'
+                            },                                                        
                         ]
                     }
                 },
