@@ -530,37 +530,61 @@ export const useMockupStore = defineStore('mockupStore', () => {
             ]
         },
         leftMenuScreen: {
+            name: "sidebar",
             settings: {
                 showNavbar: true,
                 showLeftMenu: true
             },
-            logo: '',
-            content: [
-                {
-                    label: 'Профиль',
-                    icon: 'app-icon-user'
-                },
-                {
-                    label: 'История покупок',
-                    icon: 'app-icon-user'
-                },
-                {
-                    label: 'Акции',
-                    icon: 'app-icon-user'
-                },
-                {
-                    label: 'Программа лояльности',
-                    icon: 'app-icon-user'
-                },
-                {
-                    label: 'Точки продаж',
-                    icon: 'app-icon-user'
-                },
-                {
-                    label: 'Оставить отзыв',
-                    icon: 'app-icon-user'
-                }
-            ]
+            variant: {
+                name: "leftSidebar",
+                logo: '',
+                content: [
+                    {
+                        label: 'Профиль',
+                        icon: 'app-icon-user'
+                    },
+                    {
+                        label: 'История покупок',
+                        icon: 'app-icon-bag'
+                    },
+                    {
+                        label: 'Акции',
+                        icon: 'app-icon-action_3'
+                    },
+                    {
+                        label: 'Программа лояльности',
+                        icon: 'app-icon-coins'
+                    },
+                    {
+                        label: 'Точки продаж',
+                        icon: 'app-icon-location'
+                    },
+                    {
+                        label: 'Оставить отзыв',
+                        icon: 'app-icon-commets_2'
+                    }
+                ],
+                styles: [
+                    {
+                        name: 'Фон блока',
+                        type: 'background',
+                        value: '',
+                        category: 'base'
+                    },
+                    {
+                        name: 'Цвет иконки',
+                        type: 'color',
+                        value: '000000',
+                        category: 'content'
+                    },
+                    {
+                        name: 'Цвет текста',
+                        type: 'color',
+                        value: '000000',
+                        category: 'content'
+                    },
+                ]
+            }
         },
         catalogScreen: {
 

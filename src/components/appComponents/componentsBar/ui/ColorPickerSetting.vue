@@ -10,6 +10,7 @@
                 <ColorPicker 
                     v-model="internalColorValue"
                     :inline="false"
+                    defaultColor="#ffffff"
                     :disabled="appStore.getForbiddenEdit"
                     class="color__picker"
                 />            

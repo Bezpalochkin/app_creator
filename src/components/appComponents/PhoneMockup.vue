@@ -2,8 +2,8 @@
 <div class="mockup">
     <div class="phone">
         <PhoneLeftMenu 
-            v-if="showSidebar"
-            :elementData="screenContent"
+            v-if="props.data.settings.showLeftMenu"
+            :elementData="props.data"
         />
         <StatusBar/>
         <BurgerButton/>
@@ -50,10 +50,7 @@ const props = defineProps({
     data: {
         type: Object,
         required: true
-    },
-    showSidebar: {
-        type: Boolean
-    } 
+    }
 })
 
 const screenContent = computed({
@@ -69,7 +66,7 @@ const screenContent = computed({
     }
 })
 
-console.log('screenContent', screenContent.value)
+console.log('props.data', props.data)
 
 const checkMove = (evt) => {
     // console.log('checkMove', {

@@ -1,25 +1,31 @@
 <template>
-    <div class="screen__content">
-        <PhoneMockup
-            :data="mockupStore.getScreens.leftMenuScreen"
-            :showSidebar="true"
-        />
-    </div>
-    </template>
-    
-    <script setup>
-    import PhoneMockup from '@c/appComponents/PhoneMockup.vue'
-    import { useMockupStore } from '@s/mockupStore'
-    
-    const mockupStore = useMockupStore()
-    </script>
-    
-    <style scoped>
-    @reference "tailwindcss";
-    @layer app {
-        .screen__content {
-            @apply flex flex-row items-center justify-center
-            w-[40rem] h-full overflow-clip
-        }
+<div class="screen__content">
+    <PhoneMockup
+        :data="screenData"
+    />
+</div>
+</template>
+
+<script setup>
+import { computed, onBeforeMount } from 'vue'
+import PhoneMockup from '@c/appComponents/PhoneMockup.vue'
+import { useMockupStore } from '@s/mockupStore'
+
+const mockupStore = useMockupStore()
+
+const screenData = computed(() => {
+    return mockupStore.getScreens.leftMenuScreen
+})
+
+mockupStore.editedComponentToggle(screenData.value)
+</script>
+
+<style scoped>
+@reference "tailwindcss";
+@layer app {
+    .screen__content {
+        @apply flex flex-row items-center justify-center
+        w-[40rem] h-full overflow-clip
     }
-    </style>
+}
+</style>

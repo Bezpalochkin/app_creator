@@ -1,21 +1,27 @@
 <template>
 <div class="sidebar__container">
-    <aside>
+    <aside
+        :style="$setStyles(props.elementData.variant.styles, 'base', 'all')"
+    >
         <div class="logo__container">
             <img src="" alt="">
         </div>
         <Draggable
             class="phone__content"
-            v-model="props.elementData"
+            v-model="props.elementData.variant.content"
             ghost-class="dragged__placeholder"
             item-key="name"
         >              
             <template #item="{element, index}">
-                <div class="nav__item">
+                <div 
+                    class="nav__item">
                     <i 
                         :class="element.icon"
+                        :style="$setStyles(props.elementData.variant.styles, 'content', 'color', { byName: 'Цвет иконки' })"
                     ></i>
-                    <span>{{ element.label }}</span>
+                    <span
+                        :style="$setStyles(props.elementData.variant.styles, 'content', 'color', { byName: 'Цвет текста' })"
+                    >{{ element.label }}</span>
                 </div>
             </template>
         </Draggable>
@@ -24,7 +30,11 @@
 </template>
 
 <script setup>
+import { onBeforeMount } from 'vue'
+import { useMockupStore } from '@s/mockupStore'
 import Draggable from 'vuedraggable'
+
+const mockupStore = useMockupStore()
 
 const props = defineProps({
     elementData: {
@@ -32,6 +42,7 @@ const props = defineProps({
         required: true
     }
 })
+
 </script>
 
 <style scoped>
@@ -46,7 +57,15 @@ const props = defineProps({
     }
 
     .nav__item {
-        @apply flex flex-row items-center justify-start gap-x-[.75rem] w-full p-[1rem_2rem]
+        @apply grid grid-cols-[1.5rem_1fr] items-center gap-x-[.75rem] w-full p-[1rem_2rem]
+    }
+
+    .nav__item i {
+        @apply text-[1.5rem]
+    }
+
+    .nav__item span {
+        @apply text-[1rem]
     }
 }
 </style>

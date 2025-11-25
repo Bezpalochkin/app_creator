@@ -1,6 +1,15 @@
 <template>
 <aside>
-  <div class="bar__header">{{ getLabel(props.type) }}</div>
+  <div class="bar__header">
+    <span>{{ getLabel(props.type) }}</span>
+    <Button
+      variant="text"
+      severity="contrast"
+      icon="pi pi-plus"
+      size="small"
+      rounded
+    />
+  </div>
   <ComponentVariants
     v-if="props.type === 'components'"
   />
@@ -47,8 +56,8 @@ const getLabel = (type) => {
   }
 
   .bar__header {
-    @apply sticky top-0 w-full p-[1rem] font-medium bg-(--pb-surface-color)
-    z-10
+    @apply sticky top-0 w-full grid grid-rows-1 grid-cols-[1fr_2rem]
+    items-center p-[1rem] font-medium bg-(--pb-surface-color) z-10
   }
 }
 </style>
