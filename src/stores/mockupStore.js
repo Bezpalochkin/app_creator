@@ -629,31 +629,36 @@ export const useMockupStore = defineStore('mockupStore', () => {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: false
                             },  
                             {
-                                name: 'Цвет пункта',
+                                name: 'Фон карточки',
                                 type: 'background',
                                 value: '00ff00',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Количество карточек в ряду',
                                 type: 'colsInRow',
                                 value: 2,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: false
                             },
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 8, y: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: false
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 175,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: false
                             },
                             {
                                 name: 'Скругление углов',
@@ -662,7 +667,8 @@ export const useMockupStore = defineStore('mockupStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },                                                        
                         ]
                     }

@@ -36,7 +36,39 @@ const styles = computed(() => {
 
 
 const filteredStyles = (categoryType) => {
-    return styles.value.filter(el => el.category === categoryType)
+    const order = [
+        'background',
+        'color', 
+        'height',
+        'padding',
+        'rounded',
+        'gap',
+        'border',
+        'bottom',
+        'shadow'
+    ]
+    
+    return styles.value
+        .filter(el => el.category === categoryType && el.showInSettings !== false)
+        .sort((a, b) => {
+            const indexA = order.indexOf(a.name)
+            const indexB = order.indexOf(b.name)
+            
+            // Если оба названия есть в порядке сортировки
+            if (indexA !== -1 && indexB !== -1) {
+                return indexA - indexB
+            }
+            // Если только A есть в порядке сортировки
+            if (indexA !== -1) {
+                return -1
+            }
+            // Если только B есть в порядке сортировки
+            if (indexB !== -1) {
+                return 1
+            }
+            // Если оба отсутствуют в порядке сортировки, сохраняем исходный порядок
+            return 0
+        })
 }
 
 // Вычисляемое свойство для категорий, в которых есть стили

@@ -56,14 +56,14 @@ const styleMap = {
 // Единый порядок для всех стилей - ВСЕГДА такой порядок!
 const styleOrder = [
     'background',
+    'color',
+    'height',
     'padding',
     'rounded',
-    'height',
     'gap',
-    'bottom',
     'border',
+    'bottom',
     'shadow',
-    'color'
 ];
 
 export const setStyles = (stylesArray = [], category = null, params = 'all', options = {}) => {

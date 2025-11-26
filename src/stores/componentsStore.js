@@ -42,13 +42,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: '',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -57,7 +59,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                                                     
                             {
                                 name: 'Тень блока',
@@ -66,19 +69,22 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                       
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'F2F2F2',
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -87,7 +93,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },                            
                             {
                                 name: 'Тень карточки',
@@ -96,13 +103,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                         
                             {
                                 name: 'Обводка',
@@ -114,7 +123,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                         value: 0,
                                     }
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             }
                         ]
                     },
@@ -138,13 +148,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: '',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -153,7 +165,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                                                     
                             {
                                 name: 'Тень блока',
@@ -162,19 +175,22 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                       
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'F2F2F2',
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -183,7 +199,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },                            
                             {
                                 name: 'Тень карточки',
@@ -192,31 +209,36 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'ffffff',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 50,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 12, y: 12 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 12, y: 12 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },                          
                             {
                                 name: 'Скругление углов',
@@ -225,13 +247,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '8px',
                                     value: 8
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true                            
                             },                         
                         ]  
                     },
@@ -264,13 +288,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: '',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -279,7 +305,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -288,7 +315,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -297,7 +325,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень карточки',
@@ -306,31 +335,36 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'f2f2f2',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 80,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 12, y: 12 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -339,13 +373,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '8px',
                                     value: 8
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },
                         ]  
                     },
@@ -519,13 +555,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: '',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -534,7 +572,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                                                     
                             {
                                 name: 'Тень блока',
@@ -543,25 +582,29 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                       
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'F2F2F2',
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Количество слвйдов на экране',
                                 type: 'colsInRow',
                                 value: 1,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -570,13 +613,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },                            
                             {
                                 name: 'Высота слайда',
                                 type: 'height',
                                 value: 120,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },                            
                             {
                                 name: 'Тень карточки',
@@ -585,13 +630,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                         
                             {
                                 name: 'Обводка',
@@ -603,7 +650,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                         value: 0,
                                     }
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             }
                         ]
                     },                
@@ -649,13 +697,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: 'transparent',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -664,7 +714,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -673,31 +724,36 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Количество карточек в ряду',
                                 type: 'colsInRow',
                                 value: 2,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             }, 
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 8, y: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'f2f2f2',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 175,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -706,7 +762,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Обводка',
@@ -718,7 +775,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                         value: 0,
                                     }
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -727,7 +785,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },                        
                         ]
                     },                
@@ -769,13 +828,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: 'transparent',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -784,7 +845,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -793,31 +855,36 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Количество карточек в ряду',
                                 type: 'colsInRow',
                                 value: 2,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             }, 
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 8, y: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'f2f2f2',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 175,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -826,7 +893,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Обводка',
@@ -838,7 +906,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                         value: 0,
                                     }
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -847,7 +916,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },                        
                         ]
                     },                
@@ -898,13 +968,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: 'transparent',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -913,7 +985,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -922,25 +995,29 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 16, y: 16 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'f2f2f2',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 100,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -949,7 +1026,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Обводка',
@@ -961,7 +1039,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                         value: 0,
                                     }
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Тень блока',
@@ -970,7 +1049,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },                        
                         ]
                     },
@@ -1140,13 +1220,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: '',
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },     
                             {
                                 name: 'Скругление углов',
@@ -1155,7 +1237,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 0
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                                                     
                             {
                                 name: 'Тень блока',
@@ -1164,25 +1247,29 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: true
                             },                       
                             {
                                 name: 'Фон карточки',
                                 type: 'background',
                                 value: 'F2F2F2',
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Количество слвйдов на экране',
                                 type: 'colsInRow',
                                 value: 1,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -1191,13 +1278,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },                            
                             {
                                 name: 'Высота слайда',
                                 type: 'height',
                                 value: 120,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },                            
                             {
                                 name: 'Тень карточки',
@@ -1206,13 +1295,15 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет',
                                     value: 'none'
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                         
                             {
                                 name: 'Обводка',
@@ -1224,7 +1315,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                         value: 0,
                                     }
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             }
                         ]
                     },                
@@ -1262,19 +1354,22 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: 'ffffff',
-                                category: 'layout'                            
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота',
                                 type: 'height',
                                 value: 80,
-                                category: 'layout'                            
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { y: 8, x: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -1283,7 +1378,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'Нет', 
                                     value: 0
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Меню',
@@ -1292,19 +1388,22 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'M', 
                                     value: '0 4px 12px 0 rgba(0, 0, 0, 0.15)' 
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет иконки',
                                 type: 'color',
                                 value: '2F80ED',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                        
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                           
                         ]
                     },
@@ -1338,25 +1437,29 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Отсуп от края',
                                 type: 'bottom',
                                 value: 32,
-                                category: 'base'                            
+                                category: 'base',
+                                showInSettings: true
                             },                        
                             {
                                 name: 'Фон блока',
                                 type: 'background',
                                 value: 'ffffff',
-                                category: 'layout'                            
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Высота',
                                 type: 'height',
                                 value: 60,
-                                category: 'layout'                            
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { y: 8, x: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Скругление углов',
@@ -1365,7 +1468,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px', 
                                     value: 16
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Меню',
@@ -1374,19 +1478,22 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: 'M', 
                                     value: '0 4px 12px 0 rgba(0, 0, 0, 0.15)' 
                                 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: true
                             },
                             {
                                 name: 'Цвет иконки',
                                 type: 'color',
                                 value: '2F80ED',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                        
                             {
                                 name: 'Цвет текста',
                                 type: 'color',
                                 value: '000000',
-                                category: 'content'                            
+                                category: 'content',
+                                showInSettings: true
                             },                        
                         ]
                     }
@@ -1442,31 +1549,36 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: false
                             },  
                             {
-                                name: 'Цвет пункта',
+                                name: 'Фон карточки',
                                 type: 'background',
                                 value: '00ff00',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },
                             {
                                 name: 'Количество карточек в ряду',
                                 type: 'colsInRow',
                                 value: 2,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: false
                             },
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 8, y: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: false
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 175,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: false
                             },
                             {
                                 name: 'Скругление углов',
@@ -1475,12 +1587,13 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: true
                             },                                                        
                         ]
                     },
                     {
-                        name: 'listOfCards',                      
+                        name: 'listOfCards',
                         content: [
                             {
                                 show: true,
@@ -1512,31 +1625,36 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 name: 'Внутренний отступ',
                                 type: 'padding',
                                 value: { x: 16, y: 16 },
-                                category: 'base'
+                                category: 'base',
+                                showInSettings: false
                             },  
                             {
-                                name: 'Цвет пункта',
+                                name: 'Фон карточки ',
                                 type: 'background',
                                 value: '00ff00',
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: false
                             },
                             {
                                 name: 'Количество карточек в ряду',
                                 type: 'colsInRow',
                                 value: 2,
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: false
                             },
                             {
                                 name: 'Отступ между карточками',
                                 type: 'gap',
                                 value: { x: 8, y: 8 },
-                                category: 'layout'
+                                category: 'layout',
+                                showInSettings: false
                             },
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
                                 value: 175,
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: false
                             },
                             {
                                 name: 'Скругление углов',
@@ -1545,7 +1663,8 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                     variant: '16px',
                                     value: 16
                                 },
-                                category: 'content'
+                                category: 'content',
+                                showInSettings: false
                             },                                                        
                         ]
                     },
