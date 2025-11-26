@@ -14,7 +14,7 @@
         />
     </div>
     <div class="text__content">
-        {{ props.cardType }}
+        {{ props.data.label }}
     </div>
 </div>
 <div 

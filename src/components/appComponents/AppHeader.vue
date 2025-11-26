@@ -12,12 +12,14 @@
             severity="secondary"
             size="small"
             :disabled="appStore.getForbiddenEdit"
+            @click="mockupStore.saveData(true)"
         />
         <Button
             label="Сохранить"
             severity="info"
             size="small"
             :disabled="disableSaveBtn"
+            @click="mockupStore.saveData()"
         />
     </div>
 </header>
@@ -30,7 +32,7 @@ import { useAppStore } from '@s/appStore'
 import { useMockupStore } from '@s/mockupStore'
 
 const appStore = useAppStore()
-const mockupStore = useAppStore()
+const mockupStore = useMockupStore()
 
 const disableSaveBtn = computed(() => {
     return appStore.getForbiddenEdit

@@ -5,6 +5,29 @@
         class="content__items"
     >
         <Panel
+            v-if="header"
+            header="Заголовок блока"
+            class="header__settings"
+            toggleable
+        >
+            <ShortTextComponent
+                v-if="header.show"
+                v-model="header.title"
+                :label="'Текст заголовка'"
+            />
+            <ShortTextComponent
+                v-if="header.show && header.link.show"
+                v-model="header.link.label"
+                :label="'Текст ссылки'"
+            />             
+            <SettingComponent 
+                v-for="setting in header.styles"
+                :key="setting.name"
+                v-model="setting.value"
+                :setting="setting"
+            />
+        </Panel>
+        <Panel
             v-for="(category, categoryType) in categoriesWithContent"
             :key="categoryType"
             :header="category"
@@ -23,17 +46,82 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { useMockupStore } from '@s/mockupStore'
+import { useRoute } from 'vue-router'
 
 import SettingComponent from '@c/appComponents/componentsBar/SettingComponent.vue'
 
+const route = useRoute()
 const mockupStore = useMockupStore()
 
 const styles = computed(() => {
     return mockupStore.getEditedComponent?.variant?.styles || []
 })
 
+const header = computed(() => {
+    return mockupStore.getEditedComponent?.variant?.header || null
+})
+
+// Отслеживание изменений для сохранения истории
+let isInitialLoad = true
+let lastSavedState = null
+
+// Функция для сохранения истории при изменении
+const saveHistoryIfNeeded = () => {
+    if (isInitialLoad) {
+        isInitialLoad = false
+        lastSavedState = JSON.stringify({
+            styles: mockupStore.getEditedComponent?.variant?.styles,
+            header: mockupStore.getEditedComponent?.variant?.header
+        })
+        return
+    }
+
+    const currentState = JSON.stringify({
+        styles: mockupStore.getEditedComponent?.variant?.styles,
+        header: mockupStore.getEditedComponent?.variant?.header
+    })
+
+    if (currentState !== lastSavedState) {
+        const component = mockupStore.getEditedComponent
+        if (component) {
+            if (component.name === 'navbar') {
+                mockupStore.saveNavbarChange()
+            } else {
+                const screenKey = route.meta.screen || 'mainScreen'
+                mockupStore.saveComponentChange(screenKey)
+            }
+            lastSavedState = currentState
+        }
+    }
+}
+
+// Отслеживаем изменения стилей и заголовка
+watch(
+    () => mockupStore.getEditedComponent?.variant?.styles,
+    () => {
+        saveHistoryIfNeeded()
+    },
+    { deep: true }
+)
+
+watch(
+    () => mockupStore.getEditedComponent?.variant?.header,
+    () => {
+        saveHistoryIfNeeded()
+    },
+    { deep: true }
+)
+
+// Сбрасываем при смене компонента
+watch(
+    () => mockupStore.getEditedComponent?.name,
+    () => {
+        isInitialLoad = true
+        lastSavedState = null
+    }
+)
 
 const filteredStyles = (categoryType) => {
     const order = [

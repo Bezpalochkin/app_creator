@@ -12,7 +12,7 @@
         <i 
             v-if="route.meta.screen === 'mainScreen'"
             class="pi pi-power-off delete__button"
-            @click="mockupStore.deleteComponentFromMockup(component, route.meta.screen)"
+            @click="handleToggleComponent"
         ></i>
     </div>
 </div>
@@ -20,6 +20,7 @@
 
 <script setup>
 import { useMockupStore } from '@s/mockupStore'
+import { useComponentsStore } from '@s/componentsStore'
 import { useRoute } from 'vue-router'
 
 const props = defineProps({
@@ -29,9 +30,16 @@ const props = defineProps({
 })
 
 const mockupStore = useMockupStore()
+const componentsStore = useComponentsStore()
 const route = useRoute()
 
 const component = mockupStore.getEditedComponent
+
+const handleToggleComponent = () => {
+    if (component?.name) {
+        mockupStore.toggleComponent(component.name, route.meta.screen, componentsStore)
+    }
+}
 
 const getLabel = (name) => {
     const labels = {

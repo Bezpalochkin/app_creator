@@ -12,10 +12,11 @@
             <div class="header__container">
                 <Button
                     variant="text"
-                    severity="success"
+                    :severity="isComponentEnabled(componentType) ? 'success' : 'secondary'"
                     icon="pi pi-power-off"
                     rounded
                     size="small"
+                    @click.stop="handleToggleComponent(componentType)"
                 />
                 <span>{{ getLabel(componentData, componentType) }}</span>
             </div>
@@ -78,7 +79,14 @@ const isPanelActive = (componentType) => {
 const togglePanel = (componentType) => {
     if (componentType in collapsedComponents.value) {
         const willExpand = collapsedComponents.value[componentType]
-        const component = mockupStore.getComponentFromMockup(route.meta.screen, componentType)
+        
+        // Для navbar используем getNavbar, для остальных - getComponentFromMockup
+        let component
+        if (componentType === 'navbar') {
+            component = mockupStore.getNavbar
+        } else {
+            component = mockupStore.getComponentFromMockup(route.meta.screen, componentType)
+        }
 
         if (willExpand) {
             Object.keys(collapsedComponents.value).forEach(key => {
@@ -91,7 +99,9 @@ const togglePanel = (componentType) => {
             }
         } else {
             collapsedComponents.value[componentType] = true
-            mockupStore.editedComponentToggle(component)
+            if (component) {
+                mockupStore.editedComponentToggle(component)
+            }
         }
     }
 }
@@ -100,6 +110,11 @@ const cloneVariant = (variant) => JSON.parse(JSON.stringify(variant))
 
 const updateVariantInScreens = (componentType, variantData) => {
     const screens = mockupStore.screens
+    const currentScreen = route.meta.screen
+    
+    // Сохраняем в историю перед изменением
+    mockupStore.saveComponentChange(currentScreen)
+    
     for (const screenKey in screens) {
         const screen = screens[screenKey]
         if (!screen?.content || !Array.isArray(screen.content)) {
@@ -131,8 +146,9 @@ const handleVariantClick = (componentType, variantName) => {
 
     const variantCopy = cloneVariant(selectedVariant)
 
-    if (mockupStore.navbar?.name === componentType) {
-        mockupStore.navbar.variant = variantCopy
+    if (componentType === 'navbar') {
+        // Используем метод из store для обновления navbar variant
+        mockupStore.updateNavbarVariant(variantCopy)
         return
     }
 
@@ -173,6 +189,19 @@ const expandPanel = (componentType) => {
 
 const getToggleIcon = (componentType) => {
     return collapsedComponents.value[componentType] ? 'pi pi-angle-down' : 'pi pi-angle-up'
+}
+
+const isComponentEnabled = (componentType) => {
+    if (componentType === 'navbar') {
+        // Используем getNavbar, который уже обрабатывает структуру
+        return !!mockupStore.getNavbar?.variant
+    }
+    const component = mockupStore.getComponentFromMockup(route.meta.screen, componentType)
+    return !!component?.variant
+}
+
+const handleToggleComponent = (componentType) => {
+    mockupStore.toggleComponent(componentType, route.meta.screen, componentsStore)
 }
 
 watch(

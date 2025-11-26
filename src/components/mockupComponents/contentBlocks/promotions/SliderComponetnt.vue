@@ -6,12 +6,13 @@
         :pagination="true"
     >
         <swiper-slide
-            v-for="(slide, index) in data.variant.content"
+            v-for="(slide, index) in data.variant?.content || []"
+            :key="index"
             class="component__slide"
         >
             <div 
                 class="slide__content"
-                :style="$setStyles(props.data.variant.styles, 'layout', ['height', 'background', 'rounded', 'shadow'])"
+                :style="$setStyles(props.data.variant?.styles, 'layout', ['height', 'background', 'rounded', 'shadow'])"
             ></div>
         </swiper-slide>
     </swiper>
@@ -35,11 +36,13 @@ const props = defineProps({
 })
 
 const slidePerView = computed(() => {
-    return props.data.variant.styles.find(el => el.type === 'colsInRow').value
+    const style = props.data.variant?.styles?.find(el => el.type === 'colsInRow')
+    return style?.value || 1
 })
 
 const slidesGap = computed(() => {
-    return props.data.variant.styles.find(el => el.type === 'gap' && el.category === 'layout').value.x
+    const style = props.data.variant?.styles?.find(el => el.type === 'gap' && el.category === 'layout')
+    return style?.value?.x || 0
 })
 const modules = [Pagination]
 </script>

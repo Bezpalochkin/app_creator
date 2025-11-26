@@ -1,12 +1,13 @@
 <template>
 <div 
     class="component"
-    :style="$setStyles(props.elementData.variant.styles, 'base', 'all')"
+    :style="$setStyles(props.elementData.variant?.styles, 'base', 'all')"
 >
     <div class="component__container">
         <div 
             v-if="elementData.variant?.header?.show"
             class="component__header"
+            :style="$setStyles(props.elementData.variant.header.styles, 'content', 'all')"
         >
             <div 
                 class="component__title"
@@ -14,8 +15,9 @@
                 {{ props.elementData.variant?.header?.title }}
             </div>
             <div 
+                v-if="elementData.variant?.header?.link?.show"
                 class="component__link"
-            >все</div>
+            >{{ props.elementData.variant?.header?.link?.label }}</div>
         </div>
         <BurgerButton
             v-if="elementData.name === 'burgerButton'"
@@ -40,7 +42,7 @@
     <Transition>
         <SelectionFrame 
             v-if="mockupStore.getEditedComponent?.name === elementData.name"
-            :style="$setStyles(props.elementData.variant.styles, 'base', ['rounded'])"
+            :style="$setStyles(props.elementData.variant?.styles, 'base', ['rounded'])"
             :index="index"
         />
     </Transition>    

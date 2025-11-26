@@ -790,7 +790,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                             },                        
                         ],
                         settings: {
-                            cardType: 'text'
+                            cardType: 'image'
                         }
                     },                
                     {
@@ -1503,82 +1503,90 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                         ]
                     },
                     {
-                        name: 'equalCards',                      
+                        name: "equalCards",
                         content: [
-                            {
-                                show: true,
-                                label: '1',
-                            },
-                            {
-                                show: true,
-                                label: '2',
-                            },
-                            {
-                                show: true,
-                                label: '3',
-                            },
-                            {
-                                show: true,
-                                label: '4',
-                            },
-                            {
-                                show: true,
-                                label: '5',
-                            },
-                            {
-                                show: true,
-                                label: '6',
-                                value: '2 500'
-                            }
+                          {
+                            show: true,
+                            label: "1"
+                          },
+                          {
+                            show: true,
+                            label: "2"
+                          },
+                          {
+                            show: true,
+                            label: "3"
+                          },
+                          {
+                            show: true,
+                            label: "4"
+                          },
+                          {
+                            show: true,
+                            label: "5"
+                          },
+                          {
+                            show: true,
+                            label: "6",
+                          }
                         ],
                         styles: [
-                            {
-                                name: 'Внутренний отступ',
-                                type: 'padding',
-                                value: { x: 16, y: 16 },
-                                category: 'base',
-                                showInSettings: false
-                            },  
-                            {
-                                name: 'Фон карточки',
-                                type: 'background',
-                                value: '00ff00',
-                                category: 'content',
-                                showInSettings: true
+                          {
+                            name: "Внутренний отступ",
+                            type: "padding",
+                            value: {
+                              x: 16,
+                              y: 16
                             },
-                            {
-                                name: 'Количество карточек в ряду',
-                                type: 'colsInRow',
-                                value: 2,
-                                category: 'layout',
-                                showInSettings: false
+                            category: "base",
+                            showInSettings: false
+                          },
+                          {
+                            name: "Фон карточки",
+                            type: "background",
+                            value: "00ff00",
+                            category: "content",
+                            showInSettings: true
+                          },
+                          {
+                            name: "Количество карточек в ряду",
+                            type: "colsInRow",
+                            value: 2,
+                            category: "layout",
+                            showInSettings: false
+                          },
+                          {
+                            name: "Отступ между карточками",
+                            type: "gap",
+                            value: {
+                              x: 8,
+                              y: 8
                             },
-                            {
-                                name: 'Отступ между карточками',
-                                type: 'gap',
-                                value: { x: 8, y: 8 },
-                                category: 'layout',
-                                showInSettings: false
+                            category: "layout",
+                            showInSettings: false
+                          },
+                          {
+                            name: "Высота карточки",
+                            type: "height",
+                            value: 203,
+                            category: "content",
+                            showInSettings: false
+                          },
+                          {
+                            name: "Скругление углов",
+                            type: "rounded",
+                            value: {
+                              variant: "16px",
+                              value: 16
                             },
-                            {
-                                name: 'Высота карточки',
-                                type: 'height',
-                                value: 175,
-                                category: 'content',
-                                showInSettings: false
-                            },
-                            {
-                                name: 'Скругление углов',
-                                type: 'rounded',
-                                value: {
-                                    variant: '16px',
-                                    value: 16
-                                },
-                                category: 'content',
-                                showInSettings: true
-                            },                                                        
-                        ]
-                    },
+                            category: "content",
+                            showInSettings: true
+                          }
+                        ],
+                        settings: {
+                          cardType: "text"
+                        }
+                      },
                     {
                         name: 'listOfCards',
                         content: [

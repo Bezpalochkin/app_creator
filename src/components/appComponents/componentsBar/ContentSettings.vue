@@ -31,6 +31,29 @@ const contentItems = computed({
     },
     set: (value) => {
         if (mockupStore.editedComponent?.variant) {
+            // Определяем экран для сохранения истории
+            const component = mockupStore.editedComponent
+            let screenKey = 'mainScreen' // По умолчанию
+            
+            // Если это navbar, сохраняем историю navbar
+            if (component.name === 'navbar') {
+                mockupStore.saveNavbarChange()
+            } else {
+                // Ищем экран, в котором находится компонент
+                const screens = mockupStore.screens
+                for (const key in screens) {
+                    const screen = screens[key]
+                    if (screen?.content && Array.isArray(screen.content)) {
+                        const found = screen.content.find(item => item.name === component.name)
+                        if (found) {
+                            screenKey = key
+                            break
+                        }
+                    }
+                }
+                mockupStore.saveComponentChange(screenKey)
+            }
+            
             mockupStore.editedComponent.variant.content = value
         }
     }
@@ -38,15 +61,79 @@ const contentItems = computed({
 
 const onElementUpdate = (index, updatedElement) => {
     if (mockupStore.editedComponent?.variant?.content) {
+        const component = mockupStore.editedComponent
+        
+        // Сохраняем в историю
+        if (component.name === 'navbar') {
+            mockupStore.saveNavbarChange()
+        } else {
+            let screenKey = 'mainScreen'
+            const screens = mockupStore.screens
+            for (const key in screens) {
+                const screen = screens[key]
+                if (screen?.content && Array.isArray(screen.content)) {
+                    const found = screen.content.find(item => item.name === component.name)
+                    if (found) {
+                        screenKey = key
+                        break
+                    }
+                }
+            }
+            mockupStore.saveComponentChange(screenKey)
+        }
+        
         mockupStore.editedComponent.variant.content[index] = updatedElement
     }
 }
 
 const onElementDelete = (index) => {
     if (mockupStore.editedComponent?.variant?.content) {
+        const component = mockupStore.editedComponent
+        
+        // Сохраняем в историю
+        if (component.name === 'navbar') {
+            mockupStore.saveNavbarChange()
+        } else {
+            let screenKey = 'mainScreen'
+            const screens = mockupStore.screens
+            for (const key in screens) {
+                const screen = screens[key]
+                if (screen?.content && Array.isArray(screen.content)) {
+                    const found = screen.content.find(item => item.name === component.name)
+                    if (found) {
+                        screenKey = key
+                        break
+                    }
+                }
+            }
+            mockupStore.saveComponentChange(screenKey)
+        }
+        
         mockupStore.editedComponent.variant.content.splice(index, 1)
     }
 }
+
+const addContentItem = () => {
+    if (!mockupStore.editedComponent?.variant) {
+        return
+    }
+    
+    if (!mockupStore.editedComponent.variant.content) {
+        mockupStore.editedComponent.variant.content = []
+    }
+    
+    // Добавляем новый элемент с пустыми значениями
+    const newItem = {
+        label: '',
+        icon: ''
+    }
+    
+    mockupStore.editedComponent.variant.content.push(newItem)
+}
+
+defineExpose({
+    addContentItem
+})
 
 </script>
 

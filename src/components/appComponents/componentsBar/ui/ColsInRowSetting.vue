@@ -60,7 +60,7 @@ const updateValue = (newValue) => {
     }
 
     .input__group {
-        @apply flex flex-row w-full items-center gap-x-[.5rem]
+        @apply grid w-full items-center gap-x-[.5rem]
     }
 
     .expand__content {

@@ -66,11 +66,11 @@ const contentItemsVariant = ref([
         label: 'Контакты',
         icon: 'app-icon-contacts'
     },
-    {
+        {
         label: 'Условия доставки',
         icon: 'app-icon-delivery-truck'
     },
-    {
+        {
         label: 'Записаться',
         icon: 'app-icon-date'
     },
@@ -84,11 +84,11 @@ const contentItemsVariant = ref([
     },
     {
         label: 'Корзина',
-        icon: 'app-icon-shop2'
+        icon: 'app-icon-shop-cart'
     },
     {
         label: 'Код авторизации',
-        icon: 'app-icon-qr'
+        icon: 'app-icon-qr_2'
     },
     {
         label: 'О компании',

@@ -3,11 +3,13 @@
   <div class="bar__header">
     <span>{{ getLabel(props.type) }}</span>
     <Button
+      v-if="props.type === 'content'"
       variant="text"
       severity="contrast"
       icon="pi pi-plus"
       size="small"
       rounded
+      @click="onAddContent"
     />
   </div>
   <ComponentVariants
@@ -34,6 +36,8 @@ const props = defineProps({
     }
 })
 
+const emit = defineEmits(['add-content'])
+
 const getLabel = (type) => {
     const labels = {
         components: 'Компоненты',
@@ -41,6 +45,10 @@ const getLabel = (type) => {
         content: 'Контент'
     }
     return labels[type] || type
+}
+
+const onAddContent = () => {
+    emit('add-content')
 }
 </script>
 
