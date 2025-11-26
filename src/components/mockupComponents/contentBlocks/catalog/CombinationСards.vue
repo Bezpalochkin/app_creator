@@ -14,7 +14,7 @@
             :class="getColClass(rowIndex, 0)"
             :style="$setStyles(props.elementData.styles, 'content', ['height', 'gap'])"
         >
-            <ContentCard
+            <!-- <ContentCard
                 v-for="(card, cardIndex) in getCardsForCol(row, rowIndex, 0)"
                 :key="cardIndex"
                 :card-data="card"
@@ -22,7 +22,15 @@
                     ${$setStyles(props.elementData.styles, 'content', ['background', 'rounded', 'border', 'shadow'])};
                     height: 100%;
                 `"
-            />
+            /> -->
+            <ContentCard
+                v-for="(card, cardIndex) in getCardsForCol(row, rowIndex, 0)"
+                :key="cardIndex"
+                :card-data="card"
+                :data="card"
+                :cardType="props.elementData.settings.cardType"
+                :cardStyles="props.elementData.styles"
+            />            
         </div>
         <div 
             class="grid__col"
@@ -36,10 +44,9 @@
                 v-for="(card, cardIndex) in getCardsForCol(row, rowIndex, 1)"
                 :key="cardIndex"
                 :card-data="card"
-                :style="`
-                    ${$setStyles(props.elementData.styles, 'content', ['background', 'rounded', 'border', 'shadow'])};
-                    height: 100%;
-                `"
+                :data="card"
+                :cardType="props.elementData.settings.cardType"
+                :cardStyles="props.elementData.styles"
             />
         </div>
     </div>

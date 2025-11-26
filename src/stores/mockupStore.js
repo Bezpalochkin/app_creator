@@ -385,7 +385,10 @@ export const useMockupStore = defineStore('mockupStore', () => {
                                 },
                                 category: 'content'
                             },                        
-                        ]
+                        ],
+                        settings: {
+                            cardType: 'image'
+                        }
                     },
                 },
                 {
@@ -589,7 +592,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
         catalogScreen: {
             settings: {
                 showNavbar: true,
-                showLeftMenu: false
+                showLeftMenu: false,
             },
             content: [
                 {
@@ -656,7 +659,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
-                                value: 175,
+                                value: 203,
                                 category: 'content',
                                 showInSettings: false
                             },
@@ -670,7 +673,10 @@ export const useMockupStore = defineStore('mockupStore', () => {
                                 category: 'content',
                                 showInSettings: true
                             },                                                        
-                        ]
+                        ],
+                        settings: {
+                            cardType: 'text'
+                        }
                     }
                 },
                 {

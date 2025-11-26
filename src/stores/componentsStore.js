@@ -788,7 +788,10 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 category: 'content',
                                 showInSettings: true
                             },                        
-                        ]
+                        ],
+                        settings: {
+                            cardType: 'text'
+                        }
                     },                
                     {
                         name: 'rowCard',
@@ -816,11 +819,6 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 show: true,
                                 label: 'Статус',
                                 value: 'Базовй'
-                            },
-                            {
-                                show: true,
-                                label: 'Бонусы',
-                                value: '2 500'
                             }
                         ],   
                         styles: [
@@ -861,9 +859,9 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                             {
                                 name: 'Количество карточек в ряду',
                                 type: 'colsInRow',
-                                value: 2,
+                                value: 1,
                                 category: 'layout',
-                                showInSettings: true
+                                showInSettings: false
                             }, 
                             {
                                 name: 'Отступ между карточками',
@@ -882,7 +880,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                             {
                                 name: 'Высота карточки',
                                 type: 'height',
-                                value: 175,
+                                value: 80,
                                 category: 'content',
                                 showInSettings: true
                             },
@@ -919,7 +917,10 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 category: 'content',
                                 showInSettings: true
                             },                        
-                        ]
+                        ],
+                        settings: {
+                            cardType: 'image'
+                        }
                     },                
                     {
                         name: 'checkerboardGrid',
@@ -934,166 +935,27 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                         content: [
                             {
                                 show: true,
-                                label: 'Статус',
-                                value: 'Базовй'
+                                label: '1',
                             },
                             {
                                 show: true,
-                                label: 'Бонусы',
-                                value: '2 500'
+                                label: '2',
                             },
                             {
                                 show: true,
-                                label: 'Статус',
-                                value: 'Базовй'
+                                label: '3',
                             },
                             {
                                 show: true,
-                                label: 'Бонусы',
-                                value: '2 500'
+                                label: '4',
                             },
                             {
                                 show: true,
-                                label: 'Статус',
-                                value: 'Базовй'
+                                label: '5',
                             },
                             {
                                 show: true,
-                                label: 'Бонусы',
-                                value: '2 500'
-                            }
-                        ],   
-                        styles: [
-                            {
-                                name: 'Фон блока',
-                                type: 'background',
-                                value: 'transparent',
-                                category: 'base',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Внутренний отступ',
-                                type: 'padding',
-                                value: { x: 16, y: 16 },
-                                category: 'base',
-                                showInSettings: true
-                            },     
-                            {
-                                name: 'Скругление углов',
-                                type: 'rounded',
-                                value: {
-                                    variant: 'Нет',
-                                    value: 0
-                                },
-                                category: 'base',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Тень блока',
-                                type: 'shadow',
-                                value: {
-                                    variant: 'Нет',
-                                    value: 'none'
-                                },
-                                category: 'base',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Отступ между карточками',
-                                type: 'gap',
-                                value: { x: 16, y: 16 },
-                                category: 'layout',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Фон карточки',
-                                type: 'background',
-                                value: 'f2f2f2',
-                                category: 'content',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Высота карточки',
-                                type: 'height',
-                                value: 100,
-                                category: 'content',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Скругление углов',
-                                type: 'rounded',
-                                value: {
-                                    variant: '16px',
-                                    value: 16
-                                },
-                                category: 'content',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Обводка',
-                                type: 'border',
-                                value: {
-                                    color: '',
-                                    width: {
-                                        variant: 'Нет',
-                                        value: 0,
-                                    }
-                                },
-                                category: 'content',
-                                showInSettings: true
-                            },
-                            {
-                                name: 'Тень блока',
-                                type: 'shadow',
-                                value: {
-                                    variant: 'Нет',
-                                    value: 'none'
-                                },
-                                category: 'content',
-                                showInSettings: true
-                            },                        
-                        ]
-                    },
-                    {
-                        name: 'combinationСards',
-                        image: combinationCardImg,
-                        header: {
-                            show: true,
-                            title: '',
-                            link: true,
-                            styles: {
-                                color: '000000'
-                            },
-                        },                        
-                        content: [
-                            {
-                                show: true,
-                                label: 'Статус',
-                                value: 'Базовй'
-                            },
-                            {
-                                show: true,
-                                label: 'Бонусы',
-                                value: '2 500'
-                            },
-                            {
-                                show: true,
-                                label: 'Статус',
-                                value: 'Базовй'
-                            },
-                            {
-                                show: true,
-                                label: 'Бонусы',
-                                value: '2 500'
-                            },
-                            {
-                                show: true,
-                                label: 'Статус',
-                                value: 'Базовй'
-                            },
-                            {
-                                show: true,
-                                label: 'Бонусы',
+                                label: '6',
                                 value: '2 500'
                             }
                         ],   
@@ -1141,7 +1003,129 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 category: 'content'
                             },
                             {
-                                name: 'Высота карточки',
+                                name: 'Высота большой карточки',
+                                type: 'height',
+                                value: 100,
+                                category: 'content'
+                            },
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: '16px',
+                                    value: 16
+                                },
+                                category: 'content'
+                            },
+                            {
+                                name: 'Обводка',
+                                type: 'border',
+                                value: {
+                                    color: '',
+                                    width: {
+                                        variant: 'Нет',
+                                        value: 0,
+                                    }
+                                },
+                                category: 'content'
+                            },
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'content'
+                            },                        
+                        ],
+                        settings: {
+                            cardType: 'image'
+                        }
+                    },
+                    {
+                        name: 'combinationСards',
+                        image: combinationCardImg,
+                        header: {
+                            show: true,
+                            title: '',
+                            link: true,
+                            styles: {
+                                color: '000000'
+                            },
+                        },                        
+                        content: [
+                            {
+                                show: true,
+                                label: '1',
+                            },
+                            {
+                                show: true,
+                                label: '2',
+                            },
+                            {
+                                show: true,
+                                label: '3',
+                            },
+                            {
+                                show: true,
+                                label: '4',
+                            },
+                            {
+                                show: true,
+                                label: '5',
+                            },
+                            {
+                                show: true,
+                                label: '6',
+                                value: '2 500'
+                            }
+                        ],   
+                        styles: [
+                            {
+                                name: 'Фон блока',
+                                type: 'background',
+                                value: 'transparent',
+                                category: 'base'
+                            },
+                            {
+                                name: 'Внутренний отступ',
+                                type: 'padding',
+                                value: { x: 16, y: 16 },
+                                category: 'base'
+                            },     
+                            {
+                                name: 'Скругление углов',
+                                type: 'rounded',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 0
+                                },
+                                category: 'base'
+                            },
+                            {
+                                name: 'Тень блока',
+                                type: 'shadow',
+                                value: {
+                                    variant: 'Нет',
+                                    value: 'none'
+                                },
+                                category: 'base'
+                            },
+                            {
+                                name: 'Отступ между карточками',
+                                type: 'gap',
+                                value: { x: 16, y: 16 },
+                                category: 'layout'
+                            },
+                            {
+                                name: 'Фон карточки',
+                                type: 'background',
+                                value: 'f2f2f2',
+                                category: 'content'
+                            },
+                            {
+                                name: 'Высота большой карточки',
                                 type: 'height',
                                 value: 220,
                                 category: 'content'
@@ -1176,7 +1160,10 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                                 },
                                 category: 'content'
                             },                        
-                        ]
+                        ],
+                        settings: {
+                            cardType: 'image'
+                        }
                     },
                 ]
             },

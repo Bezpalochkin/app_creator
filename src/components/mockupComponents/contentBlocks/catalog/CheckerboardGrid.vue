@@ -12,10 +12,11 @@
         <ContentCard
             v-for="(col, colIndex) in row"
             :key="colIndex"
-            :cardContent="col.content"
+            :data="col"
+            :cardType="props.elementData.settings.cardType"
+            :cardStyles="props.elementData.styles"            
             :style="`
                 ${getColumnWidth(rowIndex, colIndex)};
-                ${$setStyles(props.elementData.styles, 'content', 'all')}
             `"
         />
     </div>

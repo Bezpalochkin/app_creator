@@ -7,8 +7,10 @@
         v-for="column in elementData.content"
         :style="`
             width: ${elementWidth};
-            ${$setStyles(props.elementData.styles, 'content', 'all')}
         `"
+        :data="column"
+        :cardType="props.elementData.settings.cardType"
+        :cardStyles="props.elementData.styles"
     />
         <!-- :styleData="data.settings"
         :cardContent="column.content"
@@ -27,6 +29,8 @@ const props = defineProps({
         required: true
     }
 })
+
+console.log('cards', props.elementData)
 
 const elementWidth = computed(() => {
     const gap = props.elementData.styles.find(el => el.category === 'layout' && el.type === 'gap').value.x

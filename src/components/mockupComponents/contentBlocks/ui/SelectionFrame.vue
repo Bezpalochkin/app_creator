@@ -4,9 +4,13 @@
         class="selection__badge"
         :class="index < 1 ? 'first__component' : ''"
     >
-        <i class="pi pi-arrows-alt drag__handle"></i>
+        <i 
+            v-if="route.meta.screen === 'mainScreen'"
+            class="pi pi-arrows-alt drag__handle"
+        ></i>
         <span class="badge__text">{{ getLabel(component.name) }}</span>
         <i 
+            v-if="route.meta.screen === 'mainScreen'"
             class="pi pi-power-off delete__button"
             @click="mockupStore.deleteComponentFromMockup(component, route.meta.screen)"
         ></i>
@@ -36,7 +40,9 @@ const getLabel = (name) => {
         promotions: 'Акции',
         catalog: 'Каталог/меню',
         point: 'Точки продаж',
-        news: 'Новости'
+        news: 'Новости',
+        points: 'Точки продаж',
+        catalogCategories: 'Категории каталога'
     }
     return labels[name] || name
 }
@@ -52,9 +58,8 @@ const getLabel = (name) => {
     }
 
     .selection__badge {
-        @apply absolute left-[50%] -translate-x-[50%] -top-[2rem] grid grid-rows-1
-        grid-cols-[1rem_auto_1rem] gap-x-[1rem] w-fit leading-[1rem]
-        h-[2rem] bg-(--pb-primary-color) p-[.5rem_1rem] rounded-t-[1rem] z-1000
+        @apply absolute left-[50%] -translate-x-[50%] -top-[2rem] flex flex-row items-center
+        gap-x-[1rem] w-fit leading-[1rem] h-[2rem] bg-(--pb-primary-color) p-[.5rem_1rem] rounded-t-[1rem] z-1000
     }
 
     .selection__badge.first__component {
@@ -71,6 +76,10 @@ const getLabel = (name) => {
 
     .drag__handle:active {
         @apply cursor-grabbing
-    }     
+    }
+    
+    .badge__text {
+        @apply whitespace-nowrap w-fit
+    }
 }
 </style>

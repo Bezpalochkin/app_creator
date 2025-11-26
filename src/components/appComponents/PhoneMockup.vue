@@ -112,8 +112,7 @@ const checkMove = (evt) => {
 @layer app {
     .mockup {
         @apply relative grid place-items-center p-[.375rem] rounded-[3rem]
-        z-20 scale-68 origin-center border-[2px] border-[#CBD5E1] bg-(--pb-surface-color)
-        overflow-clip
+        z-20 scale-68 origin-center border-[2px] border-[#CBD5E1] overflow-clip
     }
 
     .phone {
