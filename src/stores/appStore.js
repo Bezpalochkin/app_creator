@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import { ROUTE_NAMES } from '@r/constants'
+import { useMockupStore } from '@s/mockupStore'
 import useAxios from '@@/useAxios'
 
 export const useAppStore = defineStore('appStore', () => {
@@ -56,11 +57,14 @@ export const useAppStore = defineStore('appStore', () => {
     
             // Добавить проверку и логирование
             if (data.value?.success) {
+                const mockupStore = useMockupStore()
                 console.log('data success')
                 // Явно логируем значение
                 console.log('forbiddenEdit from response:', data.value?.forbiddenEdit)
+                console.log('mockupData from response:', data.value?.mockupData)
                 
                 forbiddenEdit.value = data.value?.forbiddenEdit
+                mockupStore.setMockupData(data.value?.mockupData)
             } else {
                 console.warn('Response not successful or data missing')
                 forbiddenEdit.value = false // или true, в зависимости от логики

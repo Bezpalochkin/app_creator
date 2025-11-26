@@ -46,9 +46,6 @@ const screenContent = computed({
         }
     }
 })
-
-console.log('catalog screenData', props.screenData)
-console.log('catalog screenContent', screenContent)
 </script>
 
 <style scoped>

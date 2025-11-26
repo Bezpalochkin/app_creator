@@ -70,8 +70,6 @@ const props = defineProps({
     }
 })
 
-console.log('props', props.data)
-
 const screenContent = computed({
     get: () => props.data.content,
     set: (value) => {
@@ -84,8 +82,6 @@ const screenContent = computed({
         }
     }
 })
-
-console.log('props.data', props.data)
 
 const checkMove = (evt) => {
     // console.log('checkMove', {

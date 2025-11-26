@@ -12,12 +12,6 @@
         :cardType="props.elementData.settings.cardType"
         :cardStyles="props.elementData.styles"
     />
-        <!-- :styleData="data.settings"
-        :cardContent="column.content"
-        :style="`
-            ${setStyles(props.data.settings)}
-            `" -->
-    <!-- width: calc((100% - (${props.data.settings.gap.x}px * ${props.data.settings.colsInRow - 1})) / ${props.data.settings.colsInRow}); -->
 </div>
 </template>
 
@@ -29,8 +23,6 @@ const props = defineProps({
         required: true
     }
 })
-
-console.log('cards', props.elementData)
 
 const elementWidth = computed(() => {
     const gap = props.elementData.styles.find(el => el.category === 'layout' && el.type === 'gap').value.x

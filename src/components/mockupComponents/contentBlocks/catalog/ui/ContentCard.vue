@@ -43,7 +43,6 @@ const props = defineProps({
     }
 })
 
-console.log('card styles', props.cardStyles)
 const styles = computed(() => {
     return props.cardStyles.filter(s => s.category === 'content')
 })
