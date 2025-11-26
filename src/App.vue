@@ -33,7 +33,10 @@ const handleBeforeUnload = (e) => {
     }
 }
 
-onMounted(() => {
+onMounted(async () => {
+    // Ждем следующего тика, чтобы все store успели инициализироваться
+    await nextTick()
+    
     // Инициализируем сохраненное состояние при монтировании
     mockupStore.initSavedState()
     

@@ -3,6 +3,10 @@ import { ref, computed } from 'vue'
 import { useAppStore } from '@s/appStore'
 import useAxios from '@@/useAxios'
 
+const deepEqual = (obj1, obj2) => {
+    return JSON.stringify(obj1) === JSON.stringify(obj2)
+}
+
 export const useMockupStore = defineStore('mockupStore', () => {
     const { post, data } = useAxios()
     const editedComponent = ref(null)
@@ -958,19 +962,19 @@ export const useMockupStore = defineStore('mockupStore', () => {
 
     // Обновление флага несохраненных изменений
     const updateUnsavedChanges = () => {
-        const currentState = {
-            screens: deepClone(screens.value),
-            navbar: deepClone(navbar.value)
-        }
-
+        // Если savedState еще не инициализирован, считаем что изменений нет
         if (!savedState.value) {
             hasUnsavedChanges.value = false
             return
         }
-
-        const currentStateStr = JSON.stringify(currentState)
-        const savedStateStr = JSON.stringify(savedState.value)
-        hasUnsavedChanges.value = currentStateStr !== savedStateStr
+    
+        const currentState = {
+            screens: deepClone(screens.value),
+            navbar: deepClone(navbar.value)
+        }
+    
+        // Глубокое сравнение текущего состояния с сохраненным
+        hasUnsavedChanges.value = !deepEqual(currentState, savedState.value)
     }
 
     // Сохранение текущего состояния как "сохраненного"
@@ -980,17 +984,18 @@ export const useMockupStore = defineStore('mockupStore', () => {
             navbar: deepClone(navbar.value)
         }
         hasUnsavedChanges.value = false
+        console.log('Changes marked as saved') // Для отладки
     }
 
     // Инициализация сохраненного состояния
     const initSavedState = () => {
-        if (!savedState.value) {
-            savedState.value = {
-                screens: deepClone(screens.value),
-                navbar: deepClone(navbar.value)
-            }
-            hasUnsavedChanges.value = false
+        // Всегда инициализируем savedState текущим состоянием
+        savedState.value = {
+            screens: deepClone(screens.value),
+            navbar: deepClone(navbar.value)
         }
+        hasUnsavedChanges.value = false
+        console.log('Saved state initialized') // Для отладки
     }
 
     const setMockupData = (data) => {
@@ -1006,7 +1011,7 @@ export const useMockupStore = defineStore('mockupStore', () => {
         saveToHistory('navbar', true) // Сохраняем начальное состояние navbar
         
         // Инициализируем сохраненное состояние
-        markAsSaved()
+        markAsSaved() // ← ДОБАВЬТЕ ЭТУ СТРОКУ
     }
 
     const editedComponentToggle = (component) => {
@@ -1170,17 +1175,19 @@ export const useMockupStore = defineStore('mockupStore', () => {
             navbar: navbar.value,
             publish: publish
         }
-
-        console.log('saveData', mockupData)
-
+    
+        console.log('Saving data...', mockupData)
+    
         try {
             await post(`/app-creator`, mockupData)
             // После успешного сохранения обновляем сохраненное состояние
             markAsSaved()
+            console.log('Data saved successfully')
+            return true
         } catch(error) {
-            error.value = err
-            console.error('Ошибка при загрузке', err)
-            throw err
+            console.error('Ошибка при сохранении:', error)
+            // Не сбрасываем флаг изменений при ошибке сохранения
+            throw error
         }
     }
 

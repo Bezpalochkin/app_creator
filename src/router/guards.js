@@ -24,6 +24,7 @@ export const organizationGuard = async (to, from, next) => {
 export const unsavedChangesGuard = (to, from, next) => {
     const mockupStore = useMockupStore()
     
+    // Используем computed значение через .value
     if (mockupStore.hasUnsavedChanges) {
         const confirmed = window.confirm(
             'У вас есть несохраненные изменения. Вы уверены, что хотите покинуть страницу? Все несохраненные изменения будут утеряны.'

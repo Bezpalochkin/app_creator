@@ -64,7 +64,7 @@ export const useAppStore = defineStore('appStore', () => {
                 console.log('mockupData from response:', data.value?.mockupData)
                 
                 forbiddenEdit.value = data.value?.forbiddenEdit
-                // mockupStore.setMockupData(data.value?.mockupData)
+                mockupStore.setMockupData(data.value?.mockupData)
             } else {
                 console.warn('Response not successful or data missing')
                 forbiddenEdit.value = false // или true, в зависимости от логики
