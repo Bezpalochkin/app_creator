@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount, nextTick } from 'vue'
 import { useAppStore } from '@s/appStore'
 import { useMockupStore } from '@s/mockupStore'
 import MainLoader from '@c/appComponents/ui/MainLoader.vue'

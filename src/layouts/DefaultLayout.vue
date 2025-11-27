@@ -1,6 +1,7 @@
 <template>
   <div class="main-container">
       <AppHeader/>
+      <Toast />
       <div class="content">
         <NavigationSidebar/>
         <RouterView />

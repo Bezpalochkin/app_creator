@@ -11,6 +11,9 @@ export const useMockupStore = defineStore('mockupStore', () => {
     const { post, data } = useAxios()
     const editedComponent = ref(null)
 
+    const isLoading = ref(false)
+    const saveError = ref(null)
+
     // История для каждого экрана и navbar отдельно
     // Структура: { screenName: { history: [], currentIndex: -1 }, navbar: { history: [], currentIndex: -1 } }
     const historyStore = ref({})
@@ -1169,25 +1172,34 @@ export const useMockupStore = defineStore('mockupStore', () => {
     const saveData = async (publish = false) => {
         const appStore = useAppStore()
         
+        // Сбрасываем предыдущую ошибку
+        saveError.value = null
+        isLoading.value = true
+        
         const mockupData = {
             organizationid: appStore.getOrganizationId,
             screens: screens.value,
             navbar: navbar.value,
             publish: publish
         }
-    
+        
         console.log('Saving data...', mockupData)
-    
+        
         try {
             await post(`/app-creator`, mockupData)
             // После успешного сохранения обновляем сохраненное состояние
             markAsSaved()
             console.log('Data saved successfully')
-            return true
+            
+            // Возвращаем успешный результат
+            return { success: true, publish }
         } catch(error) {
             console.error('Ошибка при сохранении:', error)
+            saveError.value = error
             // Не сбрасываем флаг изменений при ошибке сохранения
             throw error
+        } finally {
+            isLoading.value = false
         }
     }
 
@@ -1204,6 +1216,36 @@ export const useMockupStore = defineStore('mockupStore', () => {
         saveToHistory('navbar')
         updateUnsavedChanges()
     }
+
+    const resetUnsavedChanges = () => {
+        if (!savedState.value) {
+            console.warn('No saved state to reset to')
+            return false
+        }
+        
+        // Восстанавливаем состояние из savedState
+        screens.value = deepClone(savedState.value.screens)
+        navbar.value = deepClone(savedState.value.navbar)
+        
+        // Сбрасываем историю для всех экранов
+        Object.keys(historyStore.value).forEach(screenKey => {
+            initHistory(screenKey)
+            // Сохраняем сброшенное состояние как начальную точку истории
+            historyStore.value[screenKey].history = [deepClone(
+                screenKey === 'navbar' ? navbar.value : screens.value[screenKey]
+            )]
+            historyStore.value[screenKey].currentIndex = 0
+        })
+        
+        // Сбрасываем editedComponent
+        editedComponent.value = null
+        
+        // Сбрасываем флаг изменений
+        hasUnsavedChanges.value = false
+        
+        console.log('Changes reset to last saved state')
+        return true
+    }    
 
     return {
         navbar,
@@ -1222,6 +1264,9 @@ export const useMockupStore = defineStore('mockupStore', () => {
         toggleComponent,
         updateNavbarVariant,
         saveData,
+        resetUnsavedChanges,
+        isLoading: computed(() => isLoading.value),
+        saveError: computed(() => saveError.value),
         // История
         undo,
         redo,

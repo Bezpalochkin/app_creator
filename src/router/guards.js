@@ -24,17 +24,21 @@ export const organizationGuard = async (to, from, next) => {
 export const unsavedChangesGuard = (to, from, next) => {
     const mockupStore = useMockupStore()
     
-    // Используем computed значение через .value
     if (mockupStore.hasUnsavedChanges) {
-        const confirmed = window.confirm(
-            'У вас есть несохраненные изменения. Вы уверены, что хотите покинуть страницу? Все несохраненные изменения будут утеряны.'
+        const choice = window.confirm(
+            'У вас есть несохраненные изменения. Что вы хотите сделать?\n\n' +
+            'OK - перейти без сохранения (изменения будут потеряны)\n' +
+            'Cancel - остаться на текущей странице'
         )
         
-        if (!confirmed) {
+        if (choice) {
+            // Пользователь согласился потерять изменения - сбрасываем их
+            mockupStore.resetUnsavedChanges()
+            next() // Разрешаем переход
+        } else {
             next(false) // Отменяем переход
-            return
         }
+    } else {
+        next() // Разрешаем переход
     }
-    
-    next() // Разрешаем переход
 }

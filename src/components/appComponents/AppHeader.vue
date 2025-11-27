@@ -12,14 +12,16 @@
             severity="secondary"
             size="small"
             :disabled="appStore.getForbiddenEdit"
-            @click="mockupStore.saveData(true)"
+            :loading="mockupStore.isLoading"
+            @click="handleSave(true)"
         />
         <Button
             label="Сохранить"
             severity="info"
             size="small"
             :disabled="disableSaveBtn"
-            @click="mockupStore.saveData()"
+            :loading="mockupStore.isLoading"
+            @click="handleSave(false)"
         />
     </div>
 </header>
@@ -30,13 +32,41 @@ import { computed } from 'vue'
 import logo from '@a/pb_logo_symbol_dark.svg'
 import { useAppStore } from '@s/appStore'
 import { useMockupStore } from '@s/mockupStore'
+import { useToast } from 'primevue/usetoast'
 
 const appStore = useAppStore()
 const mockupStore = useMockupStore()
+const toast = useToast()
 
 const disableSaveBtn = computed(() => {
-    return appStore.getForbiddenEdit
+    return appStore.getForbiddenEdit || !mockupStore.hasUnsavedChanges
 })
+
+const handleSave = async (publish = false) => {
+    try {
+        const result = await mockupStore.saveData(publish)
+        
+        if (result && result.success) {
+            // Показываем успешное уведомление
+            toast.add({
+                severity: 'success',
+                summary: publish ? 'Дизайн утвержден' : 'Сохранено',
+                detail: publish 
+                    ? 'Дизайн успешно утвержден и опубликован' 
+                    : 'Изменения успешно сохранены',
+                life: 3000
+            })
+        }
+    } catch (error) {
+        // Показываем ошибку
+        toast.add({
+            severity: 'error',
+            summary: 'Ошибка сохранения',
+            detail: 'Не удалось сохранить изменения. Попробуйте еще раз.',
+            life: 5000
+        })
+    }
+}
 </script>
 
 <style scoped>
