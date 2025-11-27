@@ -1190,9 +1190,13 @@ export const useMockupStore = defineStore('mockupStore', () => {
             // После успешного сохранения обновляем сохраненное состояние
             markAsSaved()
             console.log('Data saved successfully')
-            
+
+            if (publish) {
+              appStore.forbiddenEdit = true
+            }
+
             // Возвращаем успешный результат
-            return { success: true, publish }
+            return { success: true, publish }            
         } catch(error) {
             console.error('Ошибка при сохранении:', error)
             saveError.value = error
