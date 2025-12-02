@@ -24,132 +24,320 @@ export const useMockupStore = defineStore('mockupStore', () => {
     const savedState = ref(null) // Сохраненное состояние для сравнения
     
     const screens = ref({
-        baseSettingsScreen: {},
-        splashScreen: {},
-        mainScreen: {
-          settings: {
-            showNavbar: true,
-            showLeftMenu: false
+      baseSettingsScreen: {},
+      splashScreen: {},
+      mainScreen: {
+        settings: {
+          showNavbar: true,
+          showLeftMenu: false
+        },
+        styles: [
+          {
+            name: "Фон экрана",
+            type: "background",
+            value: "ffffff",
+            category: "base"
           },
-          content: [
-            {
-              name: "balance",
-              show: true,
-              variant: {
-                name: "splitBalanceCard",
-                content: [
-                  {
-                    show: true,
-                    label: "Статус",
-                    value: "Базовй"
+        ],
+        content: [
+          {
+            name: "balance",
+            show: true,
+            variant: {
+              name: "splitBalanceCard",
+              content: [
+                {
+                  show: true,
+                  label: "Статус",
+                  value: "Базовй"
+                },
+                {
+                  show: true,
+                  label: "Бонусы",
+                  value: "2 500"
+                },
+                {
+                  show: true,
+                  label: "Имя",
+                  value: "Александр"
+                }
+              ],
+              styles: [
+                {
+                  name: "Фон блока",
+                  type: "background",
+                  value: "ffffff",
+                  category: "base",
+                  showInSettings: true
+                },
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
                   },
-                  {
-                    show: true,
-                    label: "Бонусы",
-                    value: "2 500"
+                  category: "base",
+                  showInSettings: false
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "Нет",
+                    value: 0
                   },
-                  {
-                    show: true,
-                    label: "Имя",
-                    value: "Александр"
-                  }
-                ],
-                styles: [
-                  {
-                    name: "Фон блока",
-                    type: "background",
-                    value: "409123",
-                    category: "base"
+                  category: "base",
+                  showInSettings: true
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
                   },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "base"
+                  category: "base",
+                  showInSettings: true
+                },
+                {
+                  name: "Фон карточки",
+                  type: "background",
+                  value: "F2F2F2",
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
                   },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "16px",
+                    value: 16
+                  },
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Тень карточки",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Обводка",
+                  type: "border",
+                  value: {
+                    color: "",
+                    width: {
                       variant: "Нет",
                       value: 0
-                    },
-                    category: "base"
+                    }
                   },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Фон карточки",
-                    type: "background",
-                    value: "F2F2F2",
-                    category: "layout"
-                  },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "16px",
-                      value: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Тень карточки",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Обводка",
-                    type: "border",
-                    value: {
-                      color: "",
-                      width: {
-                        variant: "Нет",
-                        value: 0
-                      }
-                    },
-                    category: "content"
-                  },
-                  {
-                    name: "Цвет текста",
-                    type: "color",
-                    value: "000000",
-                    category: "content"
-                  }
-                ]
-              }
-            },
-            {
-              name: "promotions",
-              show: true,
-              variant: {
-                name: "slider",
-                header: {
+                  category: "content",
+                  showInSettings: true
+                },
+                {
+                  name: "Цвет текста",
+                  type: "color",
+                  value: "000000",
+                  category: "content",
+                  showInSettings: true
+                }
+              ]
+            }
+          },
+          {
+            name: "promotions",
+            show: true,
+            variant: {
+              name: "slider",
+              header: {
+                show: true,
+                title: "Акции",
+                link: {
                   show: true,
-                  title: "Акции",
+                  label: 'все'
+                },
+                styles: [
+                  {
+                      name: "Цвет текста",
+                      type: "color",
+                      value: "000000",
+                      category: "content"
+                    },
+                  ]
+              },
+              content: [
+                {
+                  show: true,
+                  label: "Статус",
+                  value: "Базовй"
+                },
+                {
+                  show: true,
+                  label: "Бонусы",
+                  value: "2 500"
+                },
+                {
+                  show: true,
+                  label: "Имя",
+                  value: "Александр"
+                }
+              ],
+              styles: [
+                {
+                  name: "Фон блока",
+                  type: "background",
+                  value: "ffffff",
+                  category: "base",
+                  showInSettings: true
+                },
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
+                  },
+                  category: "base",
+                  showInSettings: false
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "Нет",
+                    value: 0
+                  },
+                  category: "base",
+                  showInSettings: true
+                },
+                {
+                  name: "Высота слайда",
+                  type: "height",
+                  value: 120,
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "base",
+                  showInSettings: true
+                },
+                {
+                  name: "Фон карточки",
+                  type: "background",
+                  value: "F2F2F2",
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Количество слвйдов на экране",
+                  type: "colsInRow",
+                  value: 2,
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
+                  },
+                  category: "layout",
+                  showInSettings: false
+                },
+                {
+                  name: "Растояние между слайдами",
+                  type: "gap",
+                  value: {
+                    x: 8,
+                    y: 8
+                  },
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "16px",
+                    value: 16
+                  },
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Тень карточки",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "layout",
+                  showInSettings: true
+                },
+                {
+                  name: "Цвет текста",
+                  type: "color",
+                  value: "000000",
+                  category: "content",
+                  showInSettings: true
+                },
+                {
+                  name: "Обводка",
+                  type: "border",
+                  value: {
+                    color: "",
+                    width: {
+                      variant: "Нет",
+                      value: 0
+                    }
+                  },
+                  category: "content",
+                  showInSettings: true
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "base",
+                  showInSettings: true
+                }
+              ]
+            }
+          },
+          {
+            name: "catalog",
+            show: false,
+            variant: {
+              name: "combinationСards",
+              header: {
+                  show: true,
+                  title: "Каталог",
                   link: {
                     show: true,
                     label: 'все'
@@ -162,597 +350,439 @@ export const useMockupStore = defineStore('mockupStore', () => {
                         category: "content"
                       },
                     ]
+              },                
+              content: [
+                {
+                  show: true,
+                  label: "Супы"
                 },
-                content: [
-                  {
-                    show: true,
-                    label: "Статус",
-                    value: "Базовй"
-                  },
-                  {
-                    show: true,
-                    label: "Бонусы",
-                    value: "2 500"
-                  },
-                  {
-                    show: true,
-                    label: "Имя",
-                    value: "Александр"
-                  }
-                ],
-                styles: [
-                  {
-                    name: "Фон блока",
-                    type: "background",
-                    value: "de3576",
-                    category: "base"
-                  },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "Нет",
-                      value: 0
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Высота слайда",
-                    type: "height",
-                    value: 120,
-                    category: "layout"
-                  },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Фон карточки",
-                    type: "background",
-                    value: "F2F2F2",
-                    category: "layout"
-                  },
-                  {
-                    name: "Количество слвйдов на экране",
-                    type: "colsInRow",
-                    value: 2,
-                    category: "layout"
-                  },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Растояние между слайдами",
-                    type: "gap",
-                    value: {
-                      x: 8,
-                      y: 8
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "16px",
-                      value: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Тень карточки",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Цвет текста",
-                    type: "color",
-                    value: "000000",
-                    category: "content"
-                  },
-                  {
-                    name: "Обводка",
-                    type: "border",
-                    value: {
-                      color: "",
-                      width: {
-                        variant: "Нет",
-                        value: 0
-                      }
-                    },
-                    category: "content"
-                  },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "base"
-                  }
-                ]
-              }
-            },
-            {
-              name: "catalog",
-              show: false,
-              variant: {
-                name: "combinationСards",
-                header: {
-                    show: true,
-                    title: "Акции",
-                    link: {
-                      show: true,
-                      label: 'все'
-                    },
-                    styles: [
-                      {
-                          name: "Цвет текста",
-                          type: "color",
-                          value: "000000",
-                          category: "content"
-                        },
-                      ]
-                },                
-                content: [
-                  {
-                    show: true,
-                    label: "1"
-                  },
-                  {
-                    show: true,
-                    label: "2"
-                  },
-                  {
-                    show: true,
-                    label: "3"
-                  },
-                  {
-                    show: true,
-                    label: "4"
-                  },
-                  {
-                    show: true,
-                    label: "5"
-                  },
-                  {
-                    show: true,
-                    label: "6",
-                    value: "2 500"
-                  }
-                ],
-                styles: [
-                  {
-                    name: "Фон блока",
-                    type: "background",
-                    value: "630bcf",
-                    category: "base"
-                  },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "Нет",
-                      value: 0
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Отступ между карточками",
-                    type: "gap",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Фон карточки",
-                    type: "background",
-                    value: "f2f2f2",
-                    category: "content"
-                  },
-                  {
-                    name: "Высота большой карточки",
-                    type: "height",
-                    value: 220,
-                    category: "content"
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "16px",
-                      value: 16
-                    },
-                    category: "content"
-                  },
-                  {
-                    name: "Обводка",
-                    type: "border",
-                    value: {
-                      color: "",
-                      width: {
-                        variant: "Нет",
-                        value: 0
-                      }
-                    },
-                    category: "content"
-                  },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "content"
-                  }
-                ],
-                settings: {
-                  cardType: "image"
+                {
+                  show: true,
+                  label: "Вторые блюда"
+                },
+                {
+                  show: true,
+                  label: "Салаты"
+                },
+                {
+                  show: true,
+                  label: "Закуски"
+                },
+                {
+                  show: true,
+                  label: "Напитки"
+                },
+                {
+                  show: true,
+                  label: "Десерты"
                 }
-              }
-            },
-            {
-              name: "points",
-              show: true,
-              variant: {
-                name: "slider",
-                header: {
-                    show: true,
-                    title: "Акции",
-                    link: {
-                      show: true,
-                      label: 'все'
-                    },
-                    styles: [
-                      {
-                          name: "Цвет текста",
-                          type: "color",
-                          value: "000000",
-                          category: "content"
-                        },
-                      ]
+              ],
+              styles: [
+                {
+                  name: "Фон блока",
+                  type: "background",
+                  value: "ffffff",
+                  category: "base"
                 },
-                content: [
-                  {
-                    show: true,
-                    label: "Статус",
-                    value: "Базовй"
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
                   },
-                  {
-                    show: true,
-                    label: "Бонусы",
-                    value: "2 500"
+                  category: "base"
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "Нет",
+                    value: 0
                   },
-                  {
-                    show: true,
-                    label: "Имя",
-                    value: "Александр"
-                  }
-                ],
-                styles: [
-                  {
-                    name: "Фон блока",
-                    type: "background",
-                    value: "cc5869",
-                    category: "base"
+                  category: "base"
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
                   },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "base"
+                  category: "base"
+                },
+                {
+                  name: "Отступ между карточками",
+                  type: "gap",
+                  value: {
+                    x: 16,
+                    y: 16
                   },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
+                  category: "layout"
+                },
+                {
+                  name: "Фон карточки",
+                  type: "background",
+                  value: "f2f2f2",
+                  category: "content"
+                },
+                {
+                  name: "Высота большой карточки",
+                  type: "height",
+                  value: 220,
+                  category: "content"
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "16px",
+                    value: 16
+                  },
+                  category: "content"
+                },
+                {
+                  name: "Обводка",
+                  type: "border",
+                  value: {
+                    color: "",
+                    width: {
                       variant: "Нет",
                       value: 0
-                    },
-                    category: "base"
+                    }
                   },
-                  {
-                    name: "Высота слайда",
-                    type: "height",
-                    value: 120,
-                    category: "layout"
+                  category: "content"
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
                   },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "base"
-                  },
-                  {
-                    name: "Фон карточки",
-                    type: "background",
-                    value: "F2F2F2",
-                    category: "layout"
-                  },
-                  {
-                    name: "Количество слвйдов на экране",
-                    type: "colsInRow",
-                    value: 3,
-                    category: "layout"
-                  },
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Растояние между слайдами",
-                    type: "gap",
-                    value: {
-                      x: 8,
-                      y: 8
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "16px",
-                      value: 16
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Тень карточки",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "layout"
-                  },
-                  {
-                    name: "Цвет текста",
-                    type: "color",
-                    value: "000000",
-                    category: "content"
-                  },
-                  {
-                    name: "Обводка",
-                    type: "border",
-                    value: {
-                      color: "",
-                      width: {
-                        variant: "Нет",
-                        value: 0
-                      }
-                    },
-                    category: "content"
-                  },
-                  {
-                    name: "Тень блока",
-                    type: "shadow",
-                    value: {
-                      variant: "Нет",
-                      value: "none"
-                    },
-                    category: "base"
-                  }
-                ]
+                  category: "content"
+                }
+              ],
+              settings: {
+                cardType: "image"
               }
             }
-          ]
-        },
-        leftMenuScreen: {
-          name: "sidebar",
-          settings: {
-            showNavbar: true,
-            showLeftMenu: true
           },
-          variant: {
-            name: "leftSidebar",
-            logo: "",
-            content: [
-              {
-                label: "Профиль",
-                icon: "app-icon-user"
+          {
+            name: "points",
+            show: true,
+            variant: {
+              name: "slider",
+              header: {
+                  show: true,
+                  title: "Наши заведения",
+                  link: {
+                    show: true,
+                    label: 'все'
+                  },
+                  styles: [
+                    {
+                        name: "Цвет текста",
+                        type: "color",
+                        value: "000000",
+                        category: "content"
+                      },
+                    ]
               },
-              {
-                label: "История покупок",
-                icon: "app-icon-bag"
-              },
-              {
-                label: "Акции",
-                icon: "app-icon-action_3"
-              },
-              {
-                label: "Программа лояльности",
-                icon: "app-icon-coins"
-              },
-              {
-                label: "Точки продаж",
-                icon: "app-icon-location"
-              },
-              {
-                label: "Оставить отзыв",
-                icon: "app-icon-commets_2"
-              }
-            ],
-            styles: [
-              {
-                name: "Фон блока",
-                type: "background",
-                value: "",
-                category: "base"
-              },
-              {
-                name: "Цвет иконки",
-                type: "color",
-                value: "000000",
-                category: "content"
-              },
-              {
-                name: "Цвет текста",
-                type: "color",
-                value: "000000",
-                category: "content"
-              }
-            ]
+              content: [
+                {
+                }
+              ],
+              styles: [
+                {
+                  name: "Фон блока",
+                  type: "background",
+                  value: "ffffff",
+                  category: "base"
+                },
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
+                  },
+                  category: "base"
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "Нет",
+                    value: 0
+                  },
+                  category: "base"
+                },
+                {
+                  name: "Высота слайда",
+                  type: "height",
+                  value: 120,
+                  category: "layout"
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "base"
+                },
+                {
+                  name: "Фон карточки",
+                  type: "background",
+                  value: "F2F2F2",
+                  category: "layout"
+                },
+                {
+                  name: "Количество слвйдов на экране",
+                  type: "colsInRow",
+                  value: 3,
+                  category: "layout"
+                },
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
+                  },
+                  category: "layout"
+                },
+                {
+                  name: "Растояние между слайдами",
+                  type: "gap",
+                  value: {
+                    x: 8,
+                    y: 8
+                  },
+                  category: "layout"
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "16px",
+                    value: 16
+                  },
+                  category: "layout"
+                },
+                {
+                  name: "Тень карточки",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "layout"
+                },
+                {
+                  name: "Цвет текста",
+                  type: "color",
+                  value: "000000",
+                  category: "content"
+                },
+                {
+                  name: "Обводка",
+                  type: "border",
+                  value: {
+                    color: "",
+                    width: {
+                      variant: "Нет",
+                      value: 0
+                    }
+                  },
+                  category: "content"
+                },
+                {
+                  name: "Тень блока",
+                  type: "shadow",
+                  value: {
+                    variant: "Нет",
+                    value: "none"
+                  },
+                  category: "base"
+                }
+              ]
+            }
           }
+        ]
+      },
+      leftMenuScreen: {
+        name: "sidebar",
+        settings: {
+          showNavbar: true,
+          showLeftMenu: true
         },
-        catalogScreen: {
-          settings: {
-            showNavbar: true,
-            showLeftMenu: false
-          },
+        settings: {
+          showNavbar: true,
+          showLeftMenu: false
+        },    
+        variant: {
+          name: "leftSidebar",
+          logo: "",
           content: [
             {
-              name: "catalogCategories",
-              show: true,
-              variant: {
-                name: "equalCards",
-                content: [
-                  {
-                    show: true,
-                    label: "1"
-                  },
-                  {
-                    show: true,
-                    label: "2"
-                  },
-                  {
-                    show: true,
-                    label: "3"
-                  },
-                  {
-                    show: true,
-                    label: "4"
-                  },
-                  {
-                    show: true,
-                    label: "5"
-                  },
-                  {
-                    show: true,
-                    label: "6",
-                  }
-                ],
-                styles: [
-                  {
-                    name: "Внутренний отступ",
-                    type: "padding",
-                    value: {
-                      x: 16,
-                      y: 16
-                    },
-                    category: "base",
-                    showInSettings: false
-                  },
-                  {
-                    name: "Фон карточки",
-                    type: "background",
-                    value: "00ff00",
-                    category: "content",
-                    showInSettings: true
-                  },
-                  {
-                    name: "Количество карточек в ряду",
-                    type: "colsInRow",
-                    value: 2,
-                    category: "layout",
-                    showInSettings: false
-                  },
-                  {
-                    name: "Отступ между карточками",
-                    type: "gap",
-                    value: {
-                      x: 8,
-                      y: 8
-                    },
-                    category: "layout",
-                    showInSettings: false
-                  },
-                  {
-                    name: "Высота карточки",
-                    type: "height",
-                    value: 203,
-                    category: "content",
-                    showInSettings: false
-                  },
-                  {
-                    name: "Скругление углов",
-                    type: "rounded",
-                    value: {
-                      variant: "16px",
-                      value: 16
-                    },
-                    category: "content",
-                    showInSettings: true
-                  }
-                ],
-                settings: {
-                  cardType: "text"
-                }
-              }
+              label: "Профиль",
+              icon: "app-icon-user"
             },
             {
-              name: "goodsCard"
+              label: "История покупок",
+              icon: "app-icon-bag"
+            },
+            {
+              label: "Акции",
+              icon: "app-icon-action_3"
+            },
+            {
+              label: "Программа лояльности",
+              icon: "app-icon-coins"
+            },
+            {
+              label: "Точки продаж",
+              icon: "app-icon-location"
+            },
+            {
+              label: "Оставить отзыв",
+              icon: "app-icon-commets_2"
+            }
+          ],
+          styles: [
+            {
+              name: "Фон блока",
+              type: "background",
+              value: "ffffff",
+              category: "base"
+            },
+            {
+              name: "Цвет иконки",
+              type: "color",
+              value: "000000",
+              category: "content"
+            },
+            {
+              name: "Цвет текста",
+              type: "color",
+              value: "000000",
+              category: "content"
             }
           ]
         }
-      })
+      },
+      catalogScreen: {
+        settings: {
+          showNavbar: true,
+          showLeftMenu: false
+        },
+        styles: [
+          {
+            name: "Фон экрана",
+            type: "background",
+            value: "ffffff",
+            category: "base"
+          },
+        ],
+        content: [
+          {
+            name: "catalogCategories",
+            show: true,
+            variant: {
+              name: "equalCards",
+              content: [
+                {
+                  show: true,
+                  label: "Пицца"
+                },
+                {
+                  show: true,
+                  label: "Римская пицца"
+                },
+                {
+                  show: true,
+                  label: "Салаты"
+                },
+                {
+                  show: true,
+                  label: "Закуски"
+                },
+                {
+                  show: true,
+                  label: "Напитки"
+                },
+                {
+                  show: true,
+                  label: "Десерты",
+                }
+              ],
+              styles: [
+                {
+                  name: "Внутренний отступ",
+                  type: "padding",
+                  value: {
+                    x: 16,
+                    y: 16
+                  },
+                  category: "base",
+                  showInSettings: false
+                },
+                {
+                  name: "Фон карточки",
+                  type: "background",
+                  value: "f2f2f2",
+                  category: "content",
+                  showInSettings: true
+                },
+                {
+                  name: "Количество карточек в ряду",
+                  type: "colsInRow",
+                  value: 2,
+                  category: "layout",
+                  showInSettings: false
+                },
+                {
+                  name: "Отступ между карточками",
+                  type: "gap",
+                  value: {
+                    x: 8,
+                    y: 8
+                  },
+                  category: "layout",
+                  showInSettings: false
+                },
+                {
+                  name: "Высота карточки",
+                  type: "height",
+                  value: 203,
+                  category: "content",
+                  showInSettings: false
+                },
+                {
+                  name: "Скругление углов",
+                  type: "rounded",
+                  value: {
+                    variant: "16px",
+                    value: 16
+                  },
+                  category: "content",
+                  showInSettings: true
+                }
+              ],
+              settings: {
+                cardType: "text"
+              }
+          },
+          },
+          {
+            name: "goodsCard"
+          }
+        ]
+      }
+    })
 
     const navbar = ref(
         {

@@ -2,7 +2,6 @@
 <div class="screen__content">
     <PhoneMockup
         :data="screenData"
-        class="bg-[#f2f2f2]"
     />
 </div>
 </template>

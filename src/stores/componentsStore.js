@@ -11,6 +11,7 @@ import balanceWwithQrImg from '@a/variants/balance/balancewithqr.webp'
 import balanceWithLogoImg from '@a/variants/balance/balancewithlogo.webp'
 import splitBalanceWithLogoImg from '@a/variants/balance/splitbalancewithlogo.webp'
 import pointsSlider from '@a/variants/points/points_slider.webp'
+import promotionsSlider from '@a/variants/promotions/slider.webp'
 
 export const useComponentsStore = defineStore('componentsStore', () => {
     const templates = ref({
@@ -519,7 +520,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                 variants: [
                     {
                         name: "slider",
-                        image: '',
+                        image: promotionsSlider,
                         header: {
                             show: true,
                             title: '',
@@ -1505,31 +1506,31 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                     {
                         name: "equalCards",
                         content: [
-                          {
-                            show: true,
-                            label: "1"
-                          },
-                          {
-                            show: true,
-                            label: "2"
-                          },
-                          {
-                            show: true,
-                            label: "3"
-                          },
-                          {
-                            show: true,
-                            label: "4"
-                          },
-                          {
-                            show: true,
-                            label: "5"
-                          },
-                          {
-                            show: true,
-                            label: "6",
-                          }
-                        ],
+                            {
+                              show: true,
+                              label: "Пицца"
+                            },
+                            {
+                              show: true,
+                              label: "Римская пицца"
+                            },
+                            {
+                              show: true,
+                              label: "Салаты"
+                            },
+                            {
+                              show: true,
+                              label: "Закуски"
+                            },
+                            {
+                              show: true,
+                              label: "Напитки"
+                            },
+                            {
+                              show: true,
+                              label: "Десерты",
+                            }
+                          ],
                         styles: [
                           {
                             name: "Внутренний отступ",
@@ -1544,7 +1545,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                           {
                             name: "Фон карточки",
                             type: "background",
-                            value: "00ff00",
+                            value: "f2f2f2",
                             category: "content",
                             showInSettings: true
                           },
@@ -1586,7 +1587,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                         settings: {
                           cardType: "text"
                         }
-                      },
+                    },
                     {
                         name: 'listOfCards',
                         content: [

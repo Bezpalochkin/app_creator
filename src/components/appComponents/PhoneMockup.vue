@@ -1,14 +1,14 @@
 <template>
 <div class="mockup">
-    <div class="phone">
+    <div 
+        class="phone"
+        :style="$setStyles(mockupStore.getScreens[route.meta.screen]?.styles, 'base', 'all')"    
+        >
         <PhoneLeftMenu 
             v-if="route.meta.screen === 'leftMenu'"
             :elementData="props.data"
         />
         <StatusBar/>
-        <BurgerButton
-            v-if="route.meta.screen === 'mainScreen'"
-        />
         <div 
             v-if="route.meta.screen === 'mainScreen'"
             class="screen"
@@ -50,7 +50,7 @@
 <script setup>
 import { computed } from 'vue'
 import Draggable from 'vuedraggable'
-import StatusBar from '@c/mockupComponents/StatusBar.vue'
+import StatusBar from '@c/mockupComponents/contentBlocks/StatusBar.vue'
 import PhoneNavbar from '@c/mockupComponents/contentBlocks/phoneNavbar/PhoneNavbar.vue'
 import ContentBlock from '@c/mockupComponents/contentBlocks/ContentBlock.vue'
 import PhoneLeftMenu from '@c/mockupComponents/contentBlocks/PhoneLeftMenu.vue'
@@ -107,7 +107,7 @@ const checkMove = (evt) => {
 @reference "tailwindcss";
 @layer app {
     .mockup {
-        @apply relative grid place-items-center p-[.375rem] rounded-[3rem]
+        @apply relative grid place-items-center p-[.375rem] rounded-[3rem] bg-(--pb-surface-color)
         z-20 scale-68 origin-center border-[2px] border-[#CBD5E1] overflow-clip
     }
 

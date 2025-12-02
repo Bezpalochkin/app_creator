@@ -2,7 +2,6 @@
 <div class="screen__content">
     <PhoneMockup
         :data="mockupStore.getScreens.mainScreen"
-        class="bg-[#ffffff]"
     />
 </div>
 </template>
