@@ -6,6 +6,7 @@ import floatNavBarImg from '@a/variants/navbar/float_navbar.webp'
 import equalCardsImg from '@a/variants/catalog/equal_cards.webp'
 import combinationCardImg from '@a/variants/catalog/combination_card.webp'
 import rowCardImg from '@a/variants/catalog/row_cards.webp'
+import listOfCards from '@a/variants/catalog/list_of_cards.webp'
 import splitBalanceCardImg from '@a/variants/balance/splitbalancecard.webp'
 import balanceWwithQrImg from '@a/variants/balance/balancewithqr.webp'
 import balanceWithLogoImg from '@a/variants/balance/balancewithlogo.webp'
@@ -923,127 +924,127 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                             cardType: 'image'
                         }
                     },                
-                    {
-                        name: 'checkerboardGrid',
-                        header: {
-                            show: true,
-                            title: '',
-                            link: true,
-                            styles: {
-                                color: '000000'
-                            },
-                        },                        
-                        content: [
-                            {
-                                show: true,
-                                label: '1',
-                            },
-                            {
-                                show: true,
-                                label: '2',
-                            },
-                            {
-                                show: true,
-                                label: '3',
-                            },
-                            {
-                                show: true,
-                                label: '4',
-                            },
-                            {
-                                show: true,
-                                label: '5',
-                            },
-                            {
-                                show: true,
-                                label: '6',
-                                value: '2 500'
-                            }
-                        ],   
-                        styles: [
-                            {
-                                name: 'Фон блока',
-                                type: 'background',
-                                value: 'transparent',
-                                category: 'base'
-                            },
-                            {
-                                name: 'Внутренний отступ',
-                                type: 'padding',
-                                value: { x: 16, y: 16 },
-                                category: 'base'
-                            },     
-                            {
-                                name: 'Скругление углов',
-                                type: 'rounded',
-                                value: {
-                                    variant: 'Нет',
-                                    value: 0
-                                },
-                                category: 'base'
-                            },
-                            {
-                                name: 'Тень блока',
-                                type: 'shadow',
-                                value: {
-                                    variant: 'Нет',
-                                    value: 'none'
-                                },
-                                category: 'base'
-                            },
-                            {
-                                name: 'Отступ между карточками',
-                                type: 'gap',
-                                value: { x: 16, y: 16 },
-                                category: 'layout'
-                            },
-                            {
-                                name: 'Фон карточки',
-                                type: 'background',
-                                value: 'f2f2f2',
-                                category: 'content'
-                            },
-                            {
-                                name: 'Высота большой карточки',
-                                type: 'height',
-                                value: 100,
-                                category: 'content'
-                            },
-                            {
-                                name: 'Скругление углов',
-                                type: 'rounded',
-                                value: {
-                                    variant: '16px',
-                                    value: 16
-                                },
-                                category: 'content'
-                            },
-                            {
-                                name: 'Обводка',
-                                type: 'border',
-                                value: {
-                                    color: '',
-                                    width: {
-                                        variant: 'Нет',
-                                        value: 0,
-                                    }
-                                },
-                                category: 'content'
-                            },
-                            {
-                                name: 'Тень блока',
-                                type: 'shadow',
-                                value: {
-                                    variant: 'Нет',
-                                    value: 'none'
-                                },
-                                category: 'content'
-                            },                        
-                        ],
-                        settings: {
-                            cardType: 'image'
-                        }
-                    },
+                    // {
+                    //     name: 'checkerboardGrid',
+                    //     header: {
+                    //         show: true,
+                    //         title: '',
+                    //         link: true,
+                    //         styles: {
+                    //             color: '000000'
+                    //         },
+                    //     },                        
+                    //     content: [
+                    //         {
+                    //             show: true,
+                    //             label: '1',
+                    //         },
+                    //         {
+                    //             show: true,
+                    //             label: '2',
+                    //         },
+                    //         {
+                    //             show: true,
+                    //             label: '3',
+                    //         },
+                    //         {
+                    //             show: true,
+                    //             label: '4',
+                    //         },
+                    //         {
+                    //             show: true,
+                    //             label: '5',
+                    //         },
+                    //         {
+                    //             show: true,
+                    //             label: '6',
+                    //             value: '2 500'
+                    //         }
+                    //     ],   
+                    //     styles: [
+                    //         {
+                    //             name: 'Фон блока',
+                    //             type: 'background',
+                    //             value: 'transparent',
+                    //             category: 'base'
+                    //         },
+                    //         {
+                    //             name: 'Внутренний отступ',
+                    //             type: 'padding',
+                    //             value: { x: 16, y: 16 },
+                    //             category: 'base'
+                    //         },     
+                    //         {
+                    //             name: 'Скругление углов',
+                    //             type: 'rounded',
+                    //             value: {
+                    //                 variant: 'Нет',
+                    //                 value: 0
+                    //             },
+                    //             category: 'base'
+                    //         },
+                    //         {
+                    //             name: 'Тень блока',
+                    //             type: 'shadow',
+                    //             value: {
+                    //                 variant: 'Нет',
+                    //                 value: 'none'
+                    //             },
+                    //             category: 'base'
+                    //         },
+                    //         {
+                    //             name: 'Отступ между карточками',
+                    //             type: 'gap',
+                    //             value: { x: 16, y: 16 },
+                    //             category: 'layout'
+                    //         },
+                    //         {
+                    //             name: 'Фон карточки',
+                    //             type: 'background',
+                    //             value: 'f2f2f2',
+                    //             category: 'content'
+                    //         },
+                    //         {
+                    //             name: 'Высота большой карточки',
+                    //             type: 'height',
+                    //             value: 100,
+                    //             category: 'content'
+                    //         },
+                    //         {
+                    //             name: 'Скругление углов',
+                    //             type: 'rounded',
+                    //             value: {
+                    //                 variant: '16px',
+                    //                 value: 16
+                    //             },
+                    //             category: 'content'
+                    //         },
+                    //         {
+                    //             name: 'Обводка',
+                    //             type: 'border',
+                    //             value: {
+                    //                 color: '',
+                    //                 width: {
+                    //                     variant: 'Нет',
+                    //                     value: 0,
+                    //                 }
+                    //             },
+                    //             category: 'content'
+                    //         },
+                    //         {
+                    //             name: 'Тень блока',
+                    //             type: 'shadow',
+                    //             value: {
+                    //                 variant: 'Нет',
+                    //                 value: 'none'
+                    //             },
+                    //             category: 'content'
+                    //         },                        
+                    //     ],
+                    //     settings: {
+                    //         cardType: 'image'
+                    //     }
+                    // },
                     {
                         name: 'combinationСards',
                         image: combinationCardImg,
@@ -1590,6 +1591,7 @@ export const useComponentsStore = defineStore('componentsStore', () => {
                     },
                     {
                         name: 'listOfCards',
+                        image: listOfCards,
                         content: [
                             {
                                 show: true,
